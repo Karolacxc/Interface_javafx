@@ -1,3 +1,4 @@
+/*
 package controle;
 import modelo.usuario;
 import java.util.ArrayList;
@@ -31,3 +32,4 @@ public class cadastroUsuario {
 
 }
 
+*/

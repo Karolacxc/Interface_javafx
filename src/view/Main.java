@@ -1,5 +1,14 @@
+<<<<<<< HEAD
+import controller.MapController;
+=======
+<<<<<<< HEAD
 import MapController;
+
+=======
+>>>>>>> Luis
 package view;
+import MapController;
+>>>>>>> 3e7511841609e89480bf70db304821ceef25ff2e
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
