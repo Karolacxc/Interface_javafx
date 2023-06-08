@@ -23,7 +23,6 @@ public class ControllerTelaAdocConcluida extends Controller {
         });
     }
 
-<<<<<<< HEAD
       //////////// Tela Adoção concluida //////////////
 
     btnFinalizar.setOnMouseClicked(event -> {
@@ -33,8 +32,6 @@ public class ControllerTelaAdocConcluida extends Controller {
 			e.printStackTrace();
 		}
     });
-=======
->>>>>>> main
   }
 
   //mudanç
