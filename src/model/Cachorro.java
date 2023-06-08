@@ -1,5 +1,3 @@
-/* 
-
 package model;
 
 import java.io.Serializable;
@@ -92,5 +90,3 @@ public void RemoverCachorro (String nome){
     }
 }
 }
-
-*/
