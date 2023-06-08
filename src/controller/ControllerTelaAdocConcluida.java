@@ -12,9 +12,18 @@ public class ControllerTelaAdocConcluida extends Controller {
     @FXML
     private ImageView  btnFinalizar;
 
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+  
+        //////////// Tela Adoção concluida //////////////
+  
+        btnFinalizar.setOnMouseClicked(event -> {
+          
+          mudarTela("telaAdocao01.fxml", event);
+        });
+    }
 
+<<<<<<< HEAD
       //////////// Tela Adoção concluida //////////////
 
     btnFinalizar.setOnMouseClicked(event -> {
@@ -24,5 +33,8 @@ public class ControllerTelaAdocConcluida extends Controller {
 			e.printStackTrace();
 		}
     });
+=======
+>>>>>>> main
   }
-}
+
+  //mudanç

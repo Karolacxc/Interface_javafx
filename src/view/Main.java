@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+import MapController;
+
+=======
+>>>>>>> Luis
 package view;
 import MapController;
 import javafx.application.Application;
