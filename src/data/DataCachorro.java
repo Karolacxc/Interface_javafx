@@ -1,3 +1,5 @@
+/* 
+
 package data;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Cachorro;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 97373f4dddce0df4fd2f286db5e2de1ac7c9faed
 public class DataCachorro {
     private final String nomeArquivo = "cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
@@ -119,3 +125,5 @@ public class DataCachorro {
     }
    
 }
+
+*/
