@@ -17,13 +17,12 @@ public class ControllerTelaAdocConcluida extends Controller {
 
       //////////// Tela Adoção concluida //////////////
 
-      btnFinalizar.setOnMouseClicked(event -> {
-        try {
+    btnFinalizar.setOnMouseClicked(event -> {
+    try {
 			mudarTela("telaEscolhaDoguinho.fxml", event);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-      });
+    });
   }
 }

@@ -22,12 +22,20 @@ public class ControllerTelaDog04 extends Controller {
     //////////// Tela Dog 04 //////////////
 
     btnContinuar04.setOnAction(event -> {
+      try{
         mudarTela("telaFormulario.fxml", event);
-      });
+      }catch  (Exception e){
+        e.printStackTrace();
+      }
+    });
   
-      btnVoltar04.setOnAction(event -> {
+    btnVoltar04.setOnAction(event -> {
+      try{
         mudarTela("telaEscolhaDoguinho.fxml", event);
-      });
+      }catch  (Exception e){
+        e.printStackTrace();
+      }
+    });
     
 }
 }    
