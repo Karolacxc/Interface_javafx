@@ -61,8 +61,8 @@ public class DataCachorro {
     
     public Cachorro readCachorro(String nome) throws Exception {
        ArrayList <Cachorro> caes = (ArrayList<Cachorro>) getAllCachorros();
-       Cachorro cao=null;
-         for (int i=0; i<caes.size(); i++){
+       Cachorro cao = null;
+         for (int i = 0; i < caes.size(); i++){
              if (nome.equals(caes.get(i).getNome())){
                  cao = caes.get(i);
                  break;

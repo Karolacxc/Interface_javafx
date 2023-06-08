@@ -31,8 +31,8 @@ public class DataUsuario {
             user = (ArrayList<Usuario>)lerObj.readObject();
             lerObj.close();
         } catch (FileNotFoundException ex) {
-            System.out.println ("Erro ao listar usuarios");
-            throw new Exception ("Erro ao listar usuarios");
+            System.out.println ("Erro ao listar usuários");
+            throw new Exception ("Erro ao listar usuários");
         } catch (ClassNotFoundException | IOException ex) {
             System.out.println ("Erro ao listar usuarios");
             throw new Exception ("Erro ao listar usuarios");
@@ -60,8 +60,8 @@ public class DataUsuario {
     
     public Usuario readUsuario(String nome) throws Exception {
        ArrayList <Usuario> users = (ArrayList<Usuario>) getAllUsuarios();
-       Usuario user=null;
-         for (int i=0; i<users.size(); i++){
+       Usuario user = null;
+         for (int i = 0; i < users.size(); i++){
              if (nome.equals(users.get(i).getNome())){
                  user = users.get(i);
                  break;
