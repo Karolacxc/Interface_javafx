@@ -21,19 +21,11 @@ public class ControllerTelaFormulario extends Controller {
         //////////// Tela Formulario //////////////
 
         btnContinForm.setOnAction(event -> {
-            try{
-                mudarTela("telaAdocConcluida.fxml", event);
-            }catch  (Exception e){
-                e.printStackTrace();
-            }
+            mudarTela("telaAdocConcluida.fxml", event);
         });
 
         btnCancelForm.setOnAction(event -> {
-            try{
-                mudarTela("telaEscolhaDoguinho.fxml", event);
-            }catch  (Exception e){
-                e.printStackTrace();
-            }
+            mudarTela("telaEscolhaDoguinho.fxml", event);
         });
 
     }
