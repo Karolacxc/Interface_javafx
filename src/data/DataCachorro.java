@@ -1,5 +1,3 @@
-/* 
-
 package data;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -62,8 +60,8 @@ public class DataCachorro {
     
     public Cachorro readCachorro(String nome) throws Exception {
        ArrayList <Cachorro> caes = (ArrayList<Cachorro>) getAllCachorros();
-       Cachorro cao=null;
-         for (int i=0; i<caes.size(); i++){
+       Cachorro cao = null;
+         for (int i = 0; i < caes.size(); i++){
              if (nome.equals(caes.get(i).getNome())){
                  cao = caes.get(i);
                  break;
@@ -72,6 +70,11 @@ public class DataCachorro {
          return cao;
     }
     
+<<<<<<< HEAD
+    //TESTEEE
+=======
+    //TESTEEEfuuuffhuhguhjghu
+>>>>>>> Livia
 
     public void updateCachorro(Cachorro cachorro) throws Exception {
         ArrayList <Cachorro> cao = (ArrayList<Cachorro>) getAllCachorros();
@@ -121,5 +124,3 @@ public class DataCachorro {
     }
    
 }
-
-*/
