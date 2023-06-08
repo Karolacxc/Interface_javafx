@@ -10,7 +10,7 @@ public class MapController {
                                                                                     //tabela sera "puxada" para controller.
                                                                                 
     public MapController() {
-        mapController.put("TelaEscolhaDoguinho.fxml", new ControllerEscolhaDoguinho());
+//      mapController.put("TelaEscolhaDoguinho.fxml", new ControllerEscolhaDoguinho());
         mapController.put("telaDog01.fxml", new ControllerTelaDog01());
         mapController.put("telaDog02.fxml", new ControllerTelaDog02());
         mapController.put("telaelaDog03.fxml", new ControllerTelaDog03());

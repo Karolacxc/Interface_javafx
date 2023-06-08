@@ -19,7 +19,9 @@ public class ControllerTelaAdocConcluida extends Controller {
 
       btnFinalizar.setOnMouseClicked(event -> {
         try {
+
 			mudarTela("telaEscolhaDoguinho.fxml", event);
+      
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
