@@ -1,5 +1,3 @@
-/* 
-
 package model;
 
 public class Adocao {
@@ -20,4 +18,3 @@ public class Adocao {
         return user;
     }
 }
-*/
