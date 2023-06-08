@@ -1,3 +1,5 @@
+/* 
+
 package data;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
 
-
+//aaaaa
 public class DataUsuario {
     private final String nomeArquivo = "usuario.ser";
      
@@ -119,3 +121,5 @@ public class DataUsuario {
     }
    
 }
+
+*/

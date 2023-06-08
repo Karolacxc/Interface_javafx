@@ -23,7 +23,7 @@ public abstract class Controller implements Initializable { // Ela não vai ser 
 
             Controller controller = principalLoader.getController();
 
-            //Controller controller = MapController.mapController.get(path); // A a variavel controller esta sendo
+            Controller controller = MapController.mapController.get(path); // A a variavel controller esta sendo
                                                                            // sendo declarada com o tipo "Controler"
                                                                            // mesmo ela sendo abstrata, pois se
                                                                            // utiliza do Polimorfismo
