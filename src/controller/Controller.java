@@ -15,7 +15,7 @@ public abstract class Controller implements Initializable { // Ela não vai ser 
 
 
     public void mudarTela(String path, Event event)throws IOException {
-
+////aaaaaa
         try {
             
             FXMLLoader principalLoader = new FXMLLoader(getClass().getResource(path));
