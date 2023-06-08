@@ -1,0 +1,13 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.alwaysFollowHost": false,
+    "liveshare.allowGuestTaskControl": true,
+    "liveshare.guestApprovalRequired": false,
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.notebooks.allowGuestExecuteCells": true
+}
