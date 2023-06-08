@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
-aaa
+
 
 public class DataUsuario {
     private final String nomeArquivo = "usuario.ser";

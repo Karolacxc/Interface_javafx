@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Cachorro;
 
-s
+
 public class DataCachorro {
     private final String nomeArquivo = "cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
