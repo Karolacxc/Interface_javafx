@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
 
-//cuaaaaaaaa
+//aaaaa
 public class DataUsuario {
     private final String nomeArquivo = "usuario.ser";
      
