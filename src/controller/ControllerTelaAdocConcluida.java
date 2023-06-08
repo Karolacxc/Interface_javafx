@@ -23,6 +23,18 @@ public class ControllerTelaAdocConcluida extends Controller {
         });
     }
 
+<<<<<<< HEAD
+      //////////// Tela Adoção concluida //////////////
+
+    btnFinalizar.setOnMouseClicked(event -> {
+    try {
+			mudarTela("telaEscolhaDoguinho.fxml", event);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    });
+=======
+>>>>>>> main
   }
 
   //mudanç
