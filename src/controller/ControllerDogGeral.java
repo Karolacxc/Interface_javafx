@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-public class ControllerGeral extends Controller implements Initializable {
+public class ControllerDogGeral extends Controller implements Initializable {
     
         @FXML
         private Button btnAdotar;
@@ -55,9 +55,9 @@ public class ControllerGeral extends Controller implements Initializable {
         public static void configConteudo(String imagemDog, String lableDog, String textDog){
             Image imageCachorro = new Image(imagemDog);
 
-           ControllerGeral.imagemDog.setImage(imageCachorro);
-           ControllerGeral.lableDog.setText(lableDog);;
-           ControllerGeral.textDog.setText(textDog);
+           ControllerDogGeral.imagemDog.setImage(imageCachorro);
+           ControllerDogGeral.lableDog.setText(lableDog);;
+           ControllerDogGeral.textDog.setText(textDog);
 
         }
 

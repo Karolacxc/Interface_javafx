@@ -15,7 +15,6 @@ import model.Cachorro;
 import login.Login;
 
 public class DataUsuario {
-<<<<<<< HEAD
     private final String nomeArquivo = "usuario.ser";
      
     public List<Usuario> getAllUsuarios() throws Exception {
@@ -72,8 +71,6 @@ public class DataUsuario {
          return user;
     }
     
-=======
->>>>>>> ac27f19daf138b77174ae614cc813404db2c5780
 
     public void cadastrarLogin(Login Usuario) {
 

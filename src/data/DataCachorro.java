@@ -70,11 +70,6 @@ public class DataCachorro {
          return cao;
     }
     
-<<<<<<< HEAD
-    //TESTEEE
-=======
-    //TESTEEEfuuuffhuhguhjghu
->>>>>>> Livia
 
     public void updateCachorro(Cachorro cachorro) throws Exception {
         ArrayList <Cachorro> cao = (ArrayList<Cachorro>) getAllCachorros();

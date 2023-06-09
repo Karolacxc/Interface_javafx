@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdocaoCachorrosController">
+    <TableView fx:id="tabelaCachorros">
+        <columns>
+            <TableColumn text="Nome" fx:id="colunaNome" prefWidth="200" />
+            <TableColumn text="Idade" fx:id="colunaIdade" prefWidth="100" />
+        </columns>
+    </TableView>
+</AnchorPane>
