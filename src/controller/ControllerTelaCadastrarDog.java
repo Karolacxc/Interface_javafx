@@ -16,22 +16,23 @@ import model.Cachorro;
 public class ControllerTelaCadastrarDog implements Initializable {
 
     @FXML
-    private TextField textFieldCadastroCachorroId;
+    private TextField txtNomeC;
     @FXML
-    private TextField textFieldCadastroCachorroDescricao;
+    private TextField txtCorC;
     @FXML
-    private TextField textFieldCadastroCachorroPreco;
+    private TextField txtIdadeC;
     @FXML
-    private TextField textFieldCadastroCachorroEstoque;
+    private TextField txtRacaC;
     @FXML
-    private Label labelStatusCadastroCachorro;
+    private Label labelStatusCadastroDog;
     @FXML
-    private Button buttonCadastrarCachorro;
+    private Button btnAtuC;
     @FXML
-    private Button buttonCancelarCadastroCachorro;
+    private Button btnCancelC;
     
-    private Cachorro Cachorro;
-    private Stage dialogStage;
+    private Cachorro Cachorro;      ////
+
+    private Stage dialogStage;     //// 
     
     public Cachorro getCachorro(){
         return Cachorro;
@@ -51,28 +52,29 @@ public class ControllerTelaCadastrarDog implements Initializable {
     @FXML
     private void cadastrarCachorro(ActionEvent event) throws Exception {
         //Testa se os campos não estão vazios
-        if (!textFieldCadastroCachorroDescricao.getText().isEmpty() && !textFieldCadastroCachorroPreco.getText().isEmpty() && !textFieldCadastroCachorroEstoque.getText().isEmpty()){
-            String descricao = textFieldCadastroCachorroDescricao.getText().toUpperCase();
-            double preco = Double.parseDouble(textFieldCadastroCachorroPreco.getText());
-            int estoque = Integer.parseInt(textFieldCadastroCachorroEstoque.getText());
-            this.Cachorro=new Cachorro(descricao,  preco,  estoque);
+        if (!txtNomeC.getText().isEmpty() && !txtCorC.getText().isEmpty() && !txtIdadeC.getText().isEmpty() && !txtRacaC.getText().isEmpty()){
+            String nome = txtNomeC.getText().toUpperCase();
+            String cor = txtCorC.getText().toUpperCase();
+            int idade = Integer.parseInt(txtIdadeC.getText());
+            String raca = txtRacaC.getText().toUpperCase();
+
+            this.Cachorro=new Cachorro(nome,  cor,  idade, raca);
            
             this.dialogStage.close();
         }
         else{
-            labelStatusCadastroCachorro.setText ("Dados Inválidos");
-            textFieldCadastroCachorroDescricao.requestFocus();
+            labelStatusCadastroDog.setText ("Dados Inválidos");
+            txtNomeC.requestFocus();
         }
     }
     
-    private void limparCampos(){     
-       textFieldCadastroCachorroId.clear();
-        textFieldCadastroCachorroDescricao.clear();
-        textFieldCadastroCachorroPreco.clear();
-        textFieldCadastroCachorroEstoque.setText("");
-        textFieldCadastroCachorroDescricao.requestFocus();
-        
-    }
+        private void limparCampos(){     
+            txtNomeC.clear();
+            txtCorC.clear();
+            txtIdadeC.requestFocus();
+            txtRacaC.clear();
+            
+        }
 
     @FXML
     private void handleCancelarCadastro(ActionEvent event) {

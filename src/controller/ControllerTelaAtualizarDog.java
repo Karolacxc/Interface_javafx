@@ -16,22 +16,22 @@ import model.Cachorro;
 public class ControllerTelaAtualizarDog implements Initializable {
 
     @FXML
-    private TextField textFieldAtualizarCachorroId;
+    private TextField txtNomeA;
     @FXML
-    private TextField textFieldAtualizarCachorroDescricao;
+    private TextField txtCorA;
     @FXML
-    private TextField textFieldAtualizarCachorroPreco;
+    private TextField txtIdadeA;
     @FXML
-    private TextField textFieldAtualizarCachorroEstoque;
+    private TextField txtRacaA;
     @FXML
-    private Button buttonAtualizarCachorro;
+    private Button btnAtuA;
     @FXML
-    private Button buttonCancelarAtualizarCachorro;
+    private Button btnCancelA;
     @FXML
-    private Label labelStatusCadastroCachorro;
+    private Label labelStatusAtualizaDog;
     
-    private Cachorro Cachorro;
-    private Stage dialogStage;
+    private Cachorro Cachorro;      ////
+    private Stage dialogStage;      ///
 
 
     @Override
@@ -41,10 +41,10 @@ public class ControllerTelaAtualizarDog implements Initializable {
 
     public void setCachorro(Cachorro s){
         this.Cachorro=s;
-        this.textFieldAtualizarCachorroId.setText(String.valueOf(Cachorro.getId()));
-        this.textFieldAtualizarCachorroDescricao.setText(Cachorro.getDescricao());
-        this.textFieldAtualizarCachorroPreco.setText(String.valueOf(Cachorro.getPreco()));
-        this.textFieldAtualizarCachorroEstoque.setText(String.valueOf(Cachorro.getEstoque()));
+        this.txtNomeA.setText(Cachorro.getNome());
+        this.txtCorA.setText(Cachorro.getCor());
+        this.txtIdadeA.setText(String.valueOf(Cachorro.getIdade()));
+        this.txtRacaA.setText(Cachorro.getRaca());
     }
     public Cachorro getCachorro(){
         return Cachorro;
@@ -60,9 +60,11 @@ public class ControllerTelaAtualizarDog implements Initializable {
 
     @FXML
     private void handleAtualizarCachorro(ActionEvent event) throws Exception {
-        this.Cachorro.setDescricao(this.textFieldAtualizarCachorroDescricao.getText().toUpperCase());
-        this.Cachorro.setPreco(Double.parseDouble(this.textFieldAtualizarCachorroPreco.getText()));
-        this.Cachorro.setEstoque(Integer.parseInt(this.textFieldAtualizarCachorroEstoque.getText()));
+        this.Cachorro.setNome(this.txtNomeA.getText().toUpperCase());
+        this.Cachorro.setCor(this.txtCorA.getText().toUpperCase());
+        this.Cachorro.setIdade(Integer.parseInt(this.txtIdadeA.getText()));
+        this.Cachorro.setRaca(this.txtRacaA.getText().toUpperCase());
+
         dialogStage.close();
     }
 
