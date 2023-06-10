@@ -42,7 +42,7 @@ public class ControllerDogGeral extends Controller {
     
             btnVoltar.setOnAction(event -> {
                 try {
-                    mudarTela("../tela/TelaEscolhaDoguinho.fxml", event);
+                    mudarTela("../tela/TelaTabAdocao.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -75,12 +75,12 @@ public class ControllerTelaTabAdocao implements Initializable {
     private void handleAbrirFormularioCadastrarCachorro(MouseEvent event) throws IOException, Exception {
         // Carrega o arquivo fxml e cria um novo stage para a janela popup.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ControllerTelaCadastrarDog.class.getResource("/fxml/telaCadastrarCachorro.fxml"));
+            loader.setLocation(ControllerTelaCadastrarDog.class.getResource("/fxml/telaCadastraDogAdocao.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             
             // Cria o palco dialogStage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Lanchonete Delicias - Cachorro");
+            dialogStage.setTitle("DogDot - Doguinhos");
             dialogStage.initModality(Modality.APPLICATION_MODAL);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
@@ -102,18 +102,18 @@ public class ControllerTelaTabAdocao implements Initializable {
         if (Cachorro != null){
             // Carrega o arquivo fxml e cria um novo stage para a janela popup.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(TelaAtualizarController.class.getResource("/fxml/telaAtualizarCachorro.fxml"));
+            loader.setLocation(ControllerTelaAtualizarDog.class.getResource("/fxml/telaAtualizarDogAdocao.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Cria o palco dialogStage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Lanchonete Delicias - Cachorro");
+            dialogStage.setTitle("DogDot - Doguinhos");
             dialogStage.initModality(Modality.APPLICATION_MODAL);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
             // Define o Cachorro no controller.
-            TelaAtualizarCachorroController controller = loader.getController();
+            ControllerTelaAtualizarDog controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setCachorro(Cachorro);
 
@@ -136,10 +136,10 @@ public class ControllerTelaTabAdocao implements Initializable {
         ObservableList obsListCachorro = FXCollections.observableArrayList();
         ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>)dataCachorro.getAllCachorros();
         
-        String descricao = textFieldPesquisaCachorro.getText().toUpperCase();
+        String descricao = searchTextField.getText().toUpperCase();
         if (!descricao.isEmpty()){
             for (Cachorro s : listCachorros){
-                if (s.getDescricao().startsWith(descricao))
+                if (s.getNome().startsWith(nome))     ////Tem q ser:  if (s.getNome().startsWith(nome))
                     obsListCachorro.add(s);
             }
             tableCachorro.setItems(obsListCachorro);
