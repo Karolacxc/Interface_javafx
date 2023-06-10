@@ -27,7 +27,7 @@ public class ControllerTelaAdm extends Controller {
             if("12345".equals(senhaAdm.getText())){
             btnLogar02.setOnMouseClicked(event -> {
                 try {
-                    mudarTela("../tela/TelaCadastrarCachorro.fxml", event);
+                    mudarTela("../tela/TelaTabAdocao.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

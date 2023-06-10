@@ -13,6 +13,8 @@ public class MapController {
     public MapController() {
         mapController.put("../tela/TelaLogin.fxml", new ControllerTelaLogin());
         mapController.put("../tela/TelaCadastro.fxml", new ControllerTelaCadastro());
+
+        mapController.put("../tela/TelaAdm.fxml", new ControllerTelaAdm());
         mapController.put("../tela/TelaTabAdocao.fxml", new ControllerTelaTabAdocao());
        
         mapController.put("../tela/TelaAtualizarDogAdocao.fxml", new ControllerTelaAtualizarDog());

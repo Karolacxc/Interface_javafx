@@ -45,15 +45,15 @@ public class ControllerTelaLogin extends Controller {
                 e.printStackTrace();
             }
         });
-
+ 
         logarAdm.setOnMouseClicked(event -> {
             try {
                 mudarTela("../tela/telaAdm.fxml", event);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
-    }
+        });   
+  }
 
     public void setControleUsuario(ControleUsuario controleUsuario) {
         this.controleUsuario = controleUsuario;
