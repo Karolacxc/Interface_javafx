@@ -11,7 +11,7 @@ public class ControllerTelaFormulario extends Controller {
     //////////// Tela Formulario //////////////
 
     @FXML
-    private Button btnContinForm;
+    private Button btnContiForm;
 
     @FXML
     private Button btnCancelForm;
@@ -21,7 +21,7 @@ public class ControllerTelaFormulario extends Controller {
 
         //////////// Tela Formulario //////////////
 
-        btnContinForm.setOnAction(event -> {
+        btnContiForm.setOnAction(event -> {
             try {
                 mudarTela("telaAdocConcluida.fxml", event);
             } catch (IOException e) {

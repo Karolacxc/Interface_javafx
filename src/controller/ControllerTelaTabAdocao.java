@@ -8,10 +8,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import model.Cachorro;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ControllerTelaTabAdocao {
+public class ControllerTelaTabAdocao extends Controller{
     @FXML
     private AnchorPane rootPane;
 
@@ -36,9 +40,27 @@ public class ControllerTelaTabAdocao {
     @FXML
     private TableColumn<Cachorro, String> racaColumn;
 
-    public void initialize() {
-        // Configurar colunas da tabela
-        nomeColumn.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
+   
+       
+    private void filterTable(String searchTerm, ObservableList<Cachorro> cachorrosList) {
+        // Filtrar pelo nome, idade e cor
+        ObservableList<Cachorro> filteredList = FXCollections.observableArrayList();
+
+        for (Cachorro cachorro : cachorrosList) {
+            if (cachorro.getNome().toLowerCase().contains(searchTerm.toLowerCase()) ||
+                    cachorro.getCor().toLowerCase().contains(searchTerm.toLowerCase()) ||
+                    cachorro.getIdade().toLowerCase().contains(searchTerm.toLowerCase()) ||
+                    cachorro.getRaca().toLowerCase().contains(searchTerm.toLowerCase())) {
+                filteredList.add(cachorro);
+            }
+        }
+
+        tableView.setItems(filteredList);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+         nomeColumn.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
         corColumn.setCellValueFactory(cellData -> cellData.getValue().corProperty());
         idadeColumn.setCellValueFactory(cellData -> cellData.getValue().idadeProperty());
         racaColumn.setCellValueFactory(cellData -> cellData.getValue().racaProperty());
@@ -66,19 +88,5 @@ public class ControllerTelaTabAdocao {
         });
     }
 
-    private void filterTable(String searchTerm, ObservableList<Cachorro> cachorrosList) {
-        // Filtrar pelo nome, idade e cor
-        ObservableList<Cachorro> filteredList = FXCollections.observableArrayList();
-
-        for (Cachorro cachorro : cachorrosList) {
-            if (cachorro.getNome().toLowerCase().contains(searchTerm.toLowerCase()) ||
-                    cachorro.getCor().toLowerCase().contains(searchTerm.toLowerCase()) ||
-                    cachorro.getIdade().toLowerCase().contains(searchTerm.toLowerCase()) ||
-                    cachorro.getRaca().toLowerCase().contains(searchTerm.toLowerCase())) {
-                filteredList.add(cachorro);
-            }
-        }
-
-        tableView.setItems(filteredList);
     }
-}
+

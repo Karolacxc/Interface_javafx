@@ -12,10 +12,10 @@ public class MapController {
 
     public MapController() {
         mapController.put("TelaLogin.fxml", new ControllerTelaLogin());
-        mapController.put("TelaCadastro.fxml", new ControllerTelaLogin());
-        mapController.put("telaTabAdocao.fxml", new ControllerTelaLogin());
+        mapController.put("TelaCadastro.fxml", new ControllerTelaCadastro());
+        mapController.put("telaTabAdocao.fxml", new ControllerTelaTabAdocao());
 
-        mapController.put("telaDogGeral.fxml", new ControllerTelaAdocConcluida());
+        mapController.put("telaDogGeral.fxml", new ControllerDogGeral());
         mapController.put("telaFormulario.fxml", new ControllerTelaFormulario());
         mapController.put("telaAdocConcluida.fxml", new ControllerTelaAdocConcluida());
 

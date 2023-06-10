@@ -29,7 +29,7 @@ public class ControllerTelaLogin extends Controller {
         if (status.equals("correto")) {
             btnLogar.setOnMouseClicked(event -> {
                 try {
-                    mudarTela("telaTabAdocao.fxml", event);
+                    mudarTela("/telaTabAdocao.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -38,7 +38,7 @@ public class ControllerTelaLogin extends Controller {
 
         btnCadastro.setOnMouseClicked(event -> {
             try {
-                mudarTela("TelaCadastro.fxml", event);
+                mudarTela("/TelaCadastro.fxml", event);
             } catch (IOException e) {
                 e.printStackTrace();
             }
