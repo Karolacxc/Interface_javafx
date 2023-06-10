@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "tela.Main",
+            "projectName": "Interface_javafx_974d0d4d"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "telas.telas.telas.Main",
+            "projectName": "Interface_javafx_974d0d4d"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "view.Main",
             "projectName": "Interface_javafx_72107840"
         },

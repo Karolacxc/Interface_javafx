@@ -1,4 +1,4 @@
-package telas.telas.telas;
+package tela;
 
 import controller.Controller;
 import controller.MapController;
@@ -18,7 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String path = "telaFormulario.fxml"; // Determina qual é a tela inicial
+        String path = "TelaLogin.fxml"; // Determina qual é a tela inicial
 
         FXMLLoader principalLoader = new FXMLLoader(getClass().getResource(path));
         Controller controller = MapController.mapController.get(path);

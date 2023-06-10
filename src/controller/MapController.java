@@ -11,13 +11,13 @@ public class MapController {
                                                                                     //tabela sera "puxada" para controller.
 
     public MapController() {
-        mapController.put("TelaLogin.fxml", new ControllerTelaLogin());
-        mapController.put("TelaCadastro.fxml", new ControllerTelaCadastro());
-        mapController.put("telaTabAdocao.fxml", new ControllerTelaTabAdocao());
+        mapController.put("../tela/TelaLogin.fxml", new ControllerTelaLogin());
+        mapController.put("../tela/TelaCadastro.fxml", new ControllerTelaCadastro());
+        mapController.put("../tela/TelaTabAdocao.fxml", new ControllerTelaTabAdocao());
 
-        mapController.put("telaDogGeral.fxml", new ControllerDogGeral());
-        mapController.put("telaFormulario.fxml", new ControllerTelaFormulario());
-        mapController.put("telaAdocConcluida.fxml", new ControllerTelaAdocConcluida());
+        mapController.put("../tela/TelaDogGeral.fxml", new ControllerDogGeral());
+        mapController.put("../tela/TelaFormulario.fxml", new ControllerTelaFormulario());
+        mapController.put("../tela/TelaAdocConcluida.fxml", new ControllerTelaAdocConcluida());
 
 
     }

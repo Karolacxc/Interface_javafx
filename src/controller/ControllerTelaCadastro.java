@@ -46,7 +46,7 @@ public class ControllerTelaCadastro  extends Controller {
 
         btnCadastro.setOnAction(event -> {
             try {
-                mudarTela("telaTabAdocao.fxml", event);
+                mudarTela("../tela/TelaTabAdocao.fxml", event);
             } catch (IOException e) {
                 e.printStackTrace();
             }

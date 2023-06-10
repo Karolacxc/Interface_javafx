@@ -20,7 +20,7 @@ import java.net.URL;
 
         btnFinalizar.setOnMouseClicked(event -> {
           try {
-            mudarTela("TelaLogin.fxml", event);
+            mudarTela("../tela/TelaLogin.fxml", event);
           } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

@@ -34,7 +34,7 @@ public class ControllerDogGeral extends Controller {
 
             btnAdotar.setOnAction(event -> {
                 try {
-                    mudarTela("telaFormulario.fxml", event);
+                    mudarTela("../tela/TelaFormulario.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -42,7 +42,7 @@ public class ControllerDogGeral extends Controller {
     
             btnVoltar.setOnAction(event -> {
                 try {
-                    mudarTela("telaEscolhaDoguinho.fxml", event);
+                    mudarTela("../tela/TelaEscolhaDoguinho.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

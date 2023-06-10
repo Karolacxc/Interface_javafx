@@ -23,7 +23,7 @@ public class ControllerTelaFormulario extends Controller {
 
         btnContiForm.setOnAction(event -> {
             try {
-                mudarTela("telaAdocConcluida.fxml", event);
+                mudarTela("../tela/TelaAdocConcluida.fxml", event);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -33,7 +33,7 @@ public class ControllerTelaFormulario extends Controller {
         btnCancelForm.setOnAction(event -> {
             
                 try {
-                    mudarTela("telaTabAdocao.fxml", event);
+                    mudarTela("../tela/TelaTabAdocao.fxml", event);
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
