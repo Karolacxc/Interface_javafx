@@ -12,6 +12,7 @@ import java.util.List;
 import model.Usuario;
 import login.Login;
 
+@SuppressWarnings("unchecked")
 public class DataUsuario {
     private final String nomeArquivo = "usuario.ser";
      

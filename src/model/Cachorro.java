@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class Cachorro implements Serializable{
     private String nome;
     private String cor;
-    private int idade;
+    private String idade;
     private String raca;
     private String status;
     private ArrayList <Cachorro> caes;
 
 
     //Construtores
-    public Cachorro (String nome, String cor, int idade2, String raca){
+    public Cachorro (String nome, String cor,  String idade2, String raca){
         this.nome = nome;
         this.cor = cor;
         this.idade = idade2;
@@ -41,11 +41,11 @@ public class Cachorro implements Serializable{
         this.cor = cor;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade( String idade) {
         this.idade = idade;
     }
 
@@ -67,7 +67,7 @@ public class Cachorro implements Serializable{
                "\nIdade: "+this.idade;
     }
 
-    public void cadastro(String nome, String cor, int idade, String raca){
+    public void cadastro(String nome, String cor, String idade, String raca){
         Cachorro cadastroDogs = new Cachorro (nome, cor, idade, raca);
         caes.add(cadastroDogs);
       }

@@ -1,6 +1,4 @@
 package controller;
-import data.DataUsuario;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,7 +29,7 @@ public class ControllerTelaCadastro  extends Controller {
     private Stage dialogStage;
 
     public Usuario getUsuario(){
-       return usuario;
+       return Usuario;
     }
 
      public Stage getDialogStage() {
@@ -50,7 +48,6 @@ public class ControllerTelaCadastro  extends Controller {
             try {
                 mudarTela("telaTabAdocao.fxml", event);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         });
@@ -65,7 +62,7 @@ public class ControllerTelaCadastro  extends Controller {
             String email = textEmail.getText().toUpperCase();
             String endereco = textEnd.getText().toUpperCase();
             String senha = textSenha.getText().toUpperCase();
-            //this.usuario=new Usuario(nome, fone, email,senha, endereco); - falta adicionar no array se precisar 
+            this.Usuario=new Usuario(nome, fone, email,senha, endereco, 0); 
 
             this.dialogStage.close();
         }

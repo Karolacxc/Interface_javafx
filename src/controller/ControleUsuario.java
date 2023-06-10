@@ -10,10 +10,10 @@ import login.*;
 public class ControleUsuario {
     private ArrayList<Login> login = new ArrayList<>();
 
-    public void cadastrarUsuario(String email, String senha) {
-        Login log = new Login(email, senha);
+    public void cadastrarUsuario(String nome,String senha, String email) {
+        Login log = new Login(nome,senha,email);
         log.cadastrarLogin(log);
-        login.add(new Login(email, senha));
+        login.add(new Login(nome,senha, email));
     }
 
     public ArrayList<Login> listarUsuario() throws FileNotFoundException, IOException, ClassNotFoundException {

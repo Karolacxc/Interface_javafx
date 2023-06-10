@@ -32,7 +32,7 @@ public class ControllerTelaTabAdocao {
 
     @FXML
     private TableColumn<Cachorro, String> corColumn;
-    
+
     @FXML
     private TableColumn<Cachorro, String> racaColumn;
 
@@ -72,7 +72,8 @@ public class ControllerTelaTabAdocao {
         for (Cachorro cachorro : cachorrosList) {
             if (cachorro.getNome().toLowerCase().contains(searchTerm.toLowerCase())
                      cachorro.getIdade().toLowerCase().contains(searchTerm.toLowerCase())
-                     cachorro.getCor().toLowerCase().contains(searchTerm.toLowerCase())) {
+                     cachorro.getCor().toLowerCase().contains(searchTerm.toLowerCase())) 
+                    cachorro.getRaca().toLowerCase().contains(searchTerm.toLowerCase())){
                 filteredList.add(cachorro);
             }
         }
