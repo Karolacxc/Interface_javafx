@@ -1,147 +1,83 @@
 package controller;
 
-import data.DataCachorro;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import model.Adocao;
+import model.Cachorro;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-public class ControllerTelaTabAdocao implements Initializable {
+public class ControllerTelaTabAdocao {
+    @FXML
+    private AnchorPane rootPane;
 
     @FXML
-    private TableView<Cachorro> tableSalgado;
-    private DataCachorro dataCachorro = new DataCachorro();
+    private ButtonBar searchButtonBar;
+
     @FXML
-    private TableColumn<?, ?> tableColumnCahorroNome;
+    private TextField searchTextField;
+
     @FXML
-    private TableColumn<?, ?> tableColumnCachorroIdade;
-  
+    private TableView<Cachorro> tableView;
+
     @FXML
-    private TextField textFieldPesquisaCachorro;
+    private TableColumn<Cachorro, String> nomeColumn;
+
+    @FXML
+    private TableColumn<Cachorro, String> idadeColumn;
+
+    @FXML
+    private TableColumn<Cachorro, String> corColumn;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        carregarTableCachorro();
-    }    
-    
-    private void carregarTableCachorro() {
-        tableColumnCahorroNome.setCellValueFactory(new PropertyValueFactory("nome"));
-        tableColumnCachorroIdade.setCellValueFactory(new PropertyValueFactory("idade"));
-        
-        try {
-            ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>)dataCachorro.getAllCachorros();
-            ObservableList obsListCachorro = FXCollections.observableArrayList(listCachorro);
-            tableCachorro.setItems(obsListCachorro);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-    }
-
     @FXML
-    private void handleAbrirFormularioCadastrarCachorro(MouseEvent event) throws IOException, Exception {
-        // Carrega o arquivo fxml e cria um novo stage para a janela popup.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ControllerTelaTabAdocao.class.getResource("/fxml/telaCadastrarSalgado.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
-            
-            // Cria o palco dialogStage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Doguinho Uesb - Doguinho");
-            dialogStage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-            ControllerTelaTabAdocao controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-           
-            dialogStage.showAndWait();
-            Cachorro cachorro=controller.getCachorro();
-            if (cachorro!=null){
-                this.dataCachorro.createCachorro(cachorro);
+    private TableColumn<Cachorro, String> racaColumn;
+
+    public void initialize() {
+        // Configurar colunas da tabela
+        nomeColumn.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
+        idadeColumn.setCellValueFactory(cellData -> cellData.getValue().idadeProperty());
+        corColumn.setCellValueFactory(cellData -> cellData.getValue().corProperty());
+        racaColumn.setCellValueFactory(cellData -> cellData.getValue().racaProperty());
+
+        // Adicionar cachorros à tabela
+        tableView.getItems().addAll(
+                new Cachorro("Estudioso", "4 anos", "Amarelo", "Caramelo"),
+                new Cachorro("Dorinha", "6 anos", "Marrom", "Caramelo"),
+                new Cachorro("Mel", "9 anos", "Preto", "Caramelo"),
+                new Cachorro("Bob", "5 anos", "Amarelo", "Caramelo"),
+                new Cachorro("Bento", "4 anos", "Preto e Amarelo", "Caramelo"),
+                new Cachorro("Chocolate", "6 anos", "Amarelo", "Caramelo"),
+                new Cachorro("Romeu", "8 anos", "Caramelo", "Caramelo"),
+                new Cachorro("Jocao", "8 anos", "Amarelo claro", "Caramelo")
+        );
+
+        // Configurar comportamento de busca
+        searchButtonBar.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String searchTerm = searchTextField.getText();
+                filterTable(searchTerm);
             }
-            
-            carregarTableSalgado();
-    }
- */
-/* 
-    @FXML
-    private void handleAbrirFormularioAtualizarCachorro(MouseEvent event) throws IOException, Exception {
-        Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
-        if (cachorro != null){
-            // Carrega o arquivo fxml e cria um novo stage para a janela popup.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(TelaAtualizarSalgadoController.class.getResource("/fxml/telaAtualizarSalgado.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
-*/
-
-            // Cria o palco dialogStage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Adoção Doguinhos - Cachorro");
-            dialogStage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-            // Define o salgado no controller.
-            TelaAtualizarSalgadoController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            controller.setCachorro(cachorro);
-
-            // Mostra a janela e espera até o usuário fechar.
-            dialogStage.showAndWait();
-            this.dataSalgado.updateCachorro(controller.getCachorro());
-            carregarTableCachorro();
-        }
-        else{
-             Alert alert = new Alert(AlertType.WARNING);
-             alert.setTitle("Nenhuma seleção");
-             alert.setHeaderText("Nenhum Cachorro foi selecionado");
-             alert.setContentText("Por favor, selecione um Cachorro na tabela.");
-             alert.showAndWait();
-        }
+        });
     }
 
-    @FXML
-    private void handlePesquisarCachorro(KeyEvent event) throws Exception {
-        ObservableList obsListCachorro = FXCollections.observableArrayList();
-        ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>)dataCachorro.getAllCachorro();
-        
-        String descricao = textFieldPesquisaCachorro.getText().toUpperCase();
-        if (!descricao.isEmpty()){
-            for (Cachorro s : listCachorro){
-                if (s.getDescricao().startsWith(descricao))
-                    obsListaCachorro.add(s);
+    private void filterTable(String searchTerm) {
+        // Filtrar pelo nome, idade e cor
+        ObservableList<Cachorro> filteredList = FXCollections.observableArrayList();
+
+        Cachorro[] cachorrosList;
+        for (Cachorro cachorro : cachorrosList) {
+            if (cachorro.getNome().toLowerCase().contains(searchTerm.toLowerCase())
+                     cachorro.getIdade().toLowerCase().contains(searchTerm.toLowerCase())
+                     cachorro.getCor().toLowerCase().contains(searchTerm.toLowerCase())) {
+                filteredList.add(cachorro);
             }
-            tableCachorro.setItems(obsListSalgado);
         }
-        else{
-            carregarTableSalgado();
-        }
+
+        tableView.setItems(filteredList);
     }
-    
-    @FXML
-    private void handleRemoverSalgado(MouseEvent event) throws Exception {
-        Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
-        dataSalgado.deleteCachorro(cachorro);
-        carregarTableCachorro();
-    }
+
 }

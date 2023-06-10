@@ -9,17 +9,16 @@ public class Usuario implements Serializable {
     private String senha;
     private String endereco;
     private int codigo;
-    private static int cont;
+    
 
     //construtores
-    public Usuario (String nome, String fone, String email, String senha, String endereco, int codigo, int cont) {
-        cont++;
+    public Usuario (String nome, String fone, String email, String senha, String endereco, int codigo) {
         this.nome = nome;
         this.fone = fone;
         this.email = email;
         this.senha = senha;
         this.endereco = endereco;
-        this.codigo = cont;
+        
     }
 
     public Usuario(){}

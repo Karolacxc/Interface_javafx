@@ -1,6 +1,4 @@
 package data;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,29 +14,33 @@ public class DataCachorro {
     private final String nomeArquivo = "cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
      
-    public List<Cachorro> getAllCachorros() throws Exception {
-        ArrayList <Cachorro> cao = new ArrayList();
-        File arq = new File (nomeArquivo);
-        if (!arq.exists()){
-            arq.createNewFile();
-            return cao;
-        }
-        FileInputStream fluxo;
-        ObjectInputStream lerObj = null;
-        try{
-            fluxo = new FileInputStream(arq);
-            lerObj = new ObjectInputStream(fluxo);
-            cao = (ArrayList<Cachorro>)lerObj.readObject();
-            lerObj.close();
-        } catch (FileNotFoundException ex) {
-            System.out.println ("Erro ao listar cachorros");
-            throw new Exception ("Erro ao listar cachorros");
-        } catch (ClassNotFoundException | IOException ex) {
-            System.out.println ("Erro ao listar cachorros");
-            throw new Exception ("Erro ao listar cachorros");
-        }
+   public List<Cachorro> getAllCachorros() throws IOException, Exception {
+    ArrayList<Cachorro> cao = new ArrayList<>();
+    File arq = new File(nomeArquivo);
+    if (!arq.exists()) {
+        arq.createNewFile();
         return cao;
     }
+    FileInputStream fluxo;
+    ObjectInputStream lerObj = null;
+    try {
+        fluxo = new FileInputStream(arq);
+        lerObj = new ObjectInputStream(fluxo);
+        cao = (ArrayList<Cachorro>) lerObj.readObject();
+    } catch (FileNotFoundException ex) {
+        System.out.println("Erro ao listar cachorros");
+        throw new Exception("Erro ao listar cachorros");
+    } catch (ClassNotFoundException | IOException ex) {
+        System.out.println("Erro ao listar cachorros");
+        throw new Exception("Erro ao listar cachorros");
+    } finally {
+        if (lerObj != null) {
+            lerObj.close();
+        }
+    }
+    return cao;
+}
+
     
     public void createCachorro(Cachorro cao) throws Exception {
           ArrayList <Cachorro> caes = (ArrayList<Cachorro>) getAllCachorros();

@@ -13,12 +13,11 @@ public class Cachorro implements Serializable{
 
 
     //Construtores
-    public Cachorro (String nome, String cor, int idade, String raca){
+    public Cachorro (String nome, String cor, int idade2, String raca){
         this.nome = nome;
         this.cor = cor;
-        this.idade = idade;
+        this.idade = idade2;
         this.raca = raca;
-        this.status = status;
     }
     
  //metodos getters and setters
@@ -88,5 +87,9 @@ public void RemoverCachorro (String nome){
             caes.remove(i);
         }
     }
+}
+
+public Object idadeProperty() {
+    return null;
 }
 }

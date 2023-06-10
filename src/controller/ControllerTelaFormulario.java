@@ -1,4 +1,5 @@
 package controller;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,11 +22,21 @@ public class ControllerTelaFormulario extends Controller {
         //////////// Tela Formulario //////////////
 
         btnContinForm.setOnAction(event -> {
-            mudarTela("telaAdocConcluida.fxml", event);
+            try {
+                mudarTela("telaAdocConcluida.fxml", event);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         });
 
         btnCancelForm.setOnAction(event -> {
-            mudarTela("telaEscolhaDoguinho.fxml", event);
+            try {
+                mudarTela("telaTabAdocao.fxml", event);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         });
 
     }
