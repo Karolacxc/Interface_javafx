@@ -62,7 +62,7 @@ public class ControllerTelaCadastro  extends Controller {
         alert.showAndWait().ifPresent(buttonType -> {
             if (buttonType == ButtonType.OK) {
                 try {
-                    mudarTela("../tela/TelaTabAdocaofxml", event);
+                    mudarTela("../tela/TelaFormulario.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

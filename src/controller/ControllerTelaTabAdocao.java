@@ -30,12 +30,12 @@ public class ControllerTelaTabAdocao extends Controller{
 
     @FXML
     private TableColumn<Cachorro, String> nomeColumn;
+    
+    @FXML
+    private TableColumn<Cachorro, String> corColumn;
 
     @FXML
     private TableColumn<Cachorro, String> idadeColumn;
-
-    @FXML
-    private TableColumn<Cachorro, String> corColumn;
 
     @FXML
     private TableColumn<Cachorro, String> racaColumn;
