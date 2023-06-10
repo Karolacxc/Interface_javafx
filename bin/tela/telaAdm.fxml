@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="151.0" layoutY="110.0" text="Administrador " textFill="#f2f2f2" />
+      <Label layoutX="173.0" layoutY="183.0" text="Senha " textFill="#f5f5f5" />
+      <TextField layoutX="248.0" layoutY="106.0" />
+      <TextField layoutX="248.0" layoutY="179.0" />
+      <Label layoutX="230.0" layoutY="53.0" text="Login Administrador " textFill="#f2f2f2" />
+   </children>
+</AnchorPane>
