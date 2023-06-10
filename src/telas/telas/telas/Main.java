@@ -1,4 +1,4 @@
-package view;
+package telas.telas.telas;
 
 import controller.MapController;
 import javafx.application.Application;
@@ -13,23 +13,21 @@ public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
         launch(args);
-
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader principalLoader;
+        String path = "TelaLogin.fxml"; // Determina qual é a tela inicial
 
-        String path = "telaAdocao01.fxml";    //Determina qual é a tela inical
+        FXMLLoader principalLoader = new FXMLLoader(getClass().getResource(path));
+        principalLoader.setController(mapController); // Define o controlador corretamente
 
-        principalLoader = new FXMLLoader(getClass().getResource(path));             //encapsulamento
-        principalLoader.setController(MapController.mapController.get(path));       
-
-        Parent roat = principalLoader.load();
-        Scene principalScene = new Scene(roat);
+        Parent root = principalLoader.load();
+        Scene principalScene = new Scene(root);
         primaryStage.setResizable(false);
-        primaryStage.setScene(principalScene);       //carregando scena
+        primaryStage.setScene(principalScene);
         primaryStage.show();
-
     }
+
+    
 }

@@ -1,5 +1,4 @@
 package view;
-import data.*;
 import login.*;
 import model.Adocao;
 import model.Cachorro;

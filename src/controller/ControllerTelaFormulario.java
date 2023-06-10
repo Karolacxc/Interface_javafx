@@ -31,12 +31,14 @@ public class ControllerTelaFormulario extends Controller {
         });
 
         btnCancelForm.setOnAction(event -> {
-            try {
-                mudarTela("telaTabAdocao.fxml", event);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+            
+                try {
+                    mudarTela("telaTabAdocao.fxml", event);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            
         });
 
     }
