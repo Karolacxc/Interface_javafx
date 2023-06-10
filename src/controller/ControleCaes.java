@@ -8,7 +8,7 @@ public class ControleCaes {
     ArrayList <Cachorro> lista = new ArrayList<>();
 
 
-    public void cadastro(String nome, String cor, String idade, String raca){
+    public void cadastro(String nome, String cor, int idade, String raca){
         Cachorro cadastroDogs = new Cachorro (nome, cor, idade, raca);
         lista.add(cadastroDogs);
       }

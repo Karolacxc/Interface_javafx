@@ -40,13 +40,13 @@ public class ControllerTelaTabAdocao implements Initializable {
     private DataCachorro dataCachorro = new DataCachorro();
     
     @FXML
-    private TableColumn<?, ?> tableColumnCachorroNome;
+    private TableColumn<Cachorro, String> tableColumnCachorroNome;
     @FXML
-    private TableColumn<?, ?> tableColumnCachorroCor;
+    private TableColumn<Cachorro, String> tableColumnCachorroCor;
     @FXML
-    private TableColumn<?, ?> tableColumnCachorroIdade;
+    private TableColumn<Cachorro, Integer> tableColumnCachorroIdade;
     @FXML
-    private TableColumn<?, ?> tableColumnCachorroRaca;
+    private TableColumn<Cachorro, String> tableColumnCachorroRaca;
     @FXML
     private TextField searchTextField;
     
@@ -56,14 +56,15 @@ public class ControllerTelaTabAdocao implements Initializable {
     }    
     
     private void carregarTableCachorro() {
-        tableColumnCachorroNome.setCellValueFactory(new PropertyValueFactory("nome"));
-        tableColumnCachorroCor.setCellValueFactory(new PropertyValueFactory("cor"));
-        tableColumnCachorroIdade.setCellValueFactory(new PropertyValueFactory("idade"));
-        tableColumnCachorroRaca.setCellValueFactory(new PropertyValueFactory("raca"));
+        tableColumnCachorroNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnCachorroCor.setCellValueFactory(new PropertyValueFactory<>("cor"));
+        tableColumnCachorroIdade.setCellValueFactory(new PropertyValueFactory<>("idade"));
+        tableColumnCachorroRaca.setCellValueFactory(new PropertyValueFactory<>("raca"));
 
         try {
-            ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>)dataCachorro.getAllCachorros();
-            ObservableList obsListCachorro = FXCollections.observableArrayList(listCachorros);
+            ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>) dataCachorro.getAllCachorros();  ///TAVA ANTES: ArrayList<Cachorro> listCachorros = dataCachorro.getAllCachorros();
+
+            ObservableList<Cachorro> obsListCachorro = FXCollections.observableArrayList(listCachorros);
             tableCachorro.setItems(obsListCachorro);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -74,36 +75,34 @@ public class ControllerTelaTabAdocao implements Initializable {
     @FXML
     private void handleAbrirFormularioCadastrarCachorro(MouseEvent event) throws IOException, Exception {
         // Carrega o arquivo fxml e cria um novo stage para a janela popup.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ControllerTelaCadastrarDog.class.getResource("/fxml/telaCadastraDogAdocao.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
-            
-            // Cria o palco dialogStage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("DogDot - Doguinhos");
-            dialogStage.initModality(Modality.APPLICATION_MODAL);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-            ControllerTelaCadastrarDog controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-           
-            dialogStage.showAndWait();
-            Cachorro Cachorro=controller.getCachorro();
-            if (Cachorro!=null){
-                this.dataCachorro.createCachorro(Cachorro);
-            }
-            
-            carregarTableCachorro();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/telaCadastraDogAdocao.fxml"));
+        AnchorPane page = loader.load();
+        
+        // Cria o palco dialogStage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("DogDot - Doguinhos");
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        ControllerTelaCadastrarDog controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+       
+        dialogStage.showAndWait();
+        Cachorro cachorro = controller.getCachorro();
+        if (cachorro != null) {
+            dataCachorro.createCachorro(cachorro);
+        }
+        
+        carregarTableCachorro();
     }
     
     @FXML
     private void handleAbrirFormularioAtualizarCachorro(MouseEvent event) throws IOException, Exception {
-        Cachorro Cachorro = tableCachorro.getSelectionModel().getSelectedItem();
-        if (Cachorro != null){
+        Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
+        if (cachorro != null){
             // Carrega o arquivo fxml e cria um novo stage para a janela popup.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ControllerTelaAtualizarDog.class.getResource("/fxml/telaAtualizarDogAdocao.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/telaAtualizarDogAdocao.fxml"));
+            AnchorPane page = loader.load();
 
             // Cria o palco dialogStage.
             Stage dialogStage = new Stage();
@@ -115,45 +114,52 @@ public class ControllerTelaTabAdocao implements Initializable {
             // Define o Cachorro no controller.
             ControllerTelaAtualizarDog controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setCachorro(Cachorro);
+            controller.setCachorro(cachorro);
 
             // Mostra a janela e espera até o usuário fechar.
             dialogStage.showAndWait();
-            this.dataCachorro.updateCachorro(controller.getCachorro());
+            dataCachorro.updateCachorro(controller.getCachorro());
             carregarTableCachorro();
-        }
-        else{
-             Alert alert = new Alert(AlertType.WARNING);
-             alert.setTitle("Nenhuma seleção");
-             alert.setHeaderText("Nenhum Cachorro foi selecionado");
-             alert.setContentText("Por favor, selecione um Cachorro na tabela.");
-             alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Nenhuma seleção");
+            alert.setHeaderText("Nenhum Cachorro foi selecionado");
+            alert.setContentText("Por favor, selecione um Cachorro na tabela.");
+            alert.showAndWait();
         }
     }
 
     @FXML
     private void handlePesquisarCachorro(KeyEvent event) throws Exception {
-        ObservableList obsListCachorro = FXCollections.observableArrayList();
-        ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>)dataCachorro.getAllCachorros();
+        ObservableList<Cachorro> obsListCachorro = FXCollections.observableArrayList();
+        ArrayList<Cachorro> listCachorros = (ArrayList<Cachorro>) dataCachorro.getAllCachorros();  ///TAVA ANTES: ArrayList<Cachorro> listCachorros = dataCachorro.getAllCachorros();
+
         
-        String descricao = searchTextField.getText().toUpperCase();
-        if (!descricao.isEmpty()){
-            for (Cachorro s : listCachorros){
-                if (s.getNome().startsWith(nome))     ////Tem q ser:  if (s.getNome().startsWith(nome))
-                    obsListCachorro.add(s);
+        String nome = searchTextField.getText().toUpperCase();
+        if (!nome.isEmpty()) {
+            for (Cachorro cachorro : listCachorros) {
+                if (cachorro.getNome().toUpperCase().startsWith(nome)) {
+                    obsListCachorro.add(cachorro);
+                }
             }
             tableCachorro.setItems(obsListCachorro);
-        }
-        else{
+        } else {
             carregarTableCachorro();
         }
     }
     
     @FXML
     private void handleRemoverCachorro(MouseEvent event) throws Exception {
-        Cachorro Cachorro = tableCachorro.getSelectionModel().getSelectedItem();
-        dataCachorro.deleteCachorro(Cachorro);
-        carregarTableCachorro();
+        Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
+        if (cachorro != null) {
+            dataCachorro.deleteCachorro(cachorro);
+            carregarTableCachorro();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Nenhuma seleção");
+            alert.setHeaderText("Nenhum Cachorro foi selecionado");
+            alert.setContentText("Por favor, selecione um Cachorro na tabela.");
+            alert.showAndWait();
+        }
     }
 }
-
