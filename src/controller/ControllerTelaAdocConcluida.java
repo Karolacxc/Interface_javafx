@@ -4,19 +4,18 @@ package controller;
 import java.net.URL;
   import java.util.ResourceBundle;
   import javafx.fxml.FXML;
-  import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
   public class ControllerTelaAdocConcluida extends Controller {
 
       //////////// Tela Adoção concluida //////////////
 
       @FXML
-      private ImageView  btnFinalizar;
+      private Button  btnFinalizar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        //////////// Tela Adoção concluida //////////////
 
         btnFinalizar.setOnMouseClicked(event -> {
           try {
@@ -28,4 +27,3 @@ import java.net.URL;
         });
     }
   }
-  //mudanç

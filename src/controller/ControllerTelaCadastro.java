@@ -5,7 +5,9 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import model.Usuario;
 import javafx.stage.Stage;
@@ -23,7 +25,7 @@ public class ControllerTelaCadastro  extends Controller {
     @FXML
     private TextField textSenha;
     @FXML
-    private Button btnCadastro;
+    private Button btnFinal;
 
     private Usuario Usuario;
     private Stage dialogStage;
@@ -42,13 +44,28 @@ public class ControllerTelaCadastro  extends Controller {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         limparCampos();
-
-
-        btnCadastro.setOnAction(event -> {
-            try {
-                mudarTela("../tela/TelaTabAdocao.fxml", event);
-            } catch (IOException e) {
-                e.printStackTrace();
+    
+        btnFinal.setOnAction(event -> {
+            exibirAlertaConfirmacao(event);
+        });
+    }
+    
+    private void exibirAlertaConfirmacao(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Deseja realmente prosseguir?");
+        alert.setContentText("Pressione OK para confirmar ou Cancelar para voltar.");
+    
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.setAlwaysOnTop(true);
+    
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                try {
+                    mudarTela("../tela/TelaTabAdocaofxml", event);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
