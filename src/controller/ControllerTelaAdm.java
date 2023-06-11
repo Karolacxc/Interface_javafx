@@ -18,7 +18,8 @@ public class ControllerTelaAdm extends Controller {
     private TextField senhaAdm; // senha
     @FXML
     private Button btnLogar02;
-
+@FXML
+    private Button atualizarDog;
     
 
 @Override
@@ -27,7 +28,14 @@ public class ControllerTelaAdm extends Controller {
             if("12345".equals(senhaAdm.getText())){
             btnLogar02.setOnMouseClicked(event -> {
                 try {
-                    mudarTela("../tela/TelaTabAdocao.fxml", event);
+                    mudarTela("../tela/TelaCadastrarDog.fxml", event);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            atualizarDog.setOnMouseClicked(event -> {
+                try {
+                    mudarTela("../tela/TelaAtualizarDog.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
