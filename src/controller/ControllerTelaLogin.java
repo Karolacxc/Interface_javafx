@@ -19,7 +19,7 @@ public class ControllerTelaLogin extends Controller {
     @FXML
     private Button btnCadastro;
     @FXML
-    private Button logarAdm;
+    private Button btnLogarAdm;
     @FXML
     private Button btnLogar;
 
@@ -46,7 +46,7 @@ public class ControllerTelaLogin extends Controller {
             }
         });
  
-        logarAdm.setOnMouseClicked(event -> {
+        btnLogarAdm.setOnMouseClicked(event -> {
             try {
                 mudarTela("../tela/telaAdm.fxml", event);
             } catch (IOException e) {
