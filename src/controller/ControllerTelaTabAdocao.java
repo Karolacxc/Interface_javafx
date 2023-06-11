@@ -93,6 +93,7 @@ public class ControllerTelaTabAdocao extends Controller {
         tableColumnCachorroIdade.setCellValueFactory(new PropertyValueFactory<>("idade"));
         tableColumnCachorroRaca.setCellValueFactory(new PropertyValueFactory<>("raca"));
         
+        
         ObservableList<Cachorro> obsListaCachorro = FXCollections.observableArrayList();
 
         obsListaCachorro.addAll(dataCachorro.getListaCachorros());
