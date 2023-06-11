@@ -79,7 +79,7 @@ public class ControllerTelaCadastro  extends Controller {
             String email = textEmail.getText().toUpperCase();
             String endereco = textEnd.getText().toUpperCase();
             String senha = textSenha.getText().toUpperCase();
-            this.Usuario=new Usuario(nome, fone, email,senha, endereco, 0); 
+            this.Usuario=new Usuario(nome, fone, email,senha, endereco); 
 
             this.dialogStage.close();
         }

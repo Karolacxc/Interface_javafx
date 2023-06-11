@@ -1,17 +1,14 @@
 package controller;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import data.DataUsuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Usuario;
-
-import javafx.event.ActionEvent;
-
 
 public class ControllerTelaLogin extends Controller {
 
@@ -26,70 +23,52 @@ public class ControllerTelaLogin extends Controller {
     @FXML
     private Button btnLogar;
 
-    private ControleUsuario controleUsuario;
+    private DataUsuario dataUsuario;
 
-@Override
-public void initialize(URL location, ResourceBundle resources) {
-    btnLogar.setOnAction( event -> {
-        String nome = caixaTexto01.getText();
-        String senha = caixaTexto02.getText();
-        
-        boolean entrou = false;
-        DataUsuario dataUsuario = new DataUsuario();
-        Usuario usuario;
-        try {
-            usuario = dataUsuario.readUsuario(nome);
-            
-            if (usuario != null && usuario.getSenha().equals(senha)) {
-                mudarTela("../tela/TelaTabAdocao.fxml", event);
-                entrou = true;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        dataUsuario = new DataUsuario();
+        dataUsuario.adicionarUsuariosPreEstabelecidos();
+
+        btnLogar.setOnMouseClicked(event -> {
+            String nome = caixaTexto01.getText();
+            String senha = caixaTexto02.getText();
+
+            try {
+                boolean entrou = loginUsuario(nome, senha);
+                if (entrou) {
+                    mudarTela("../tela/TelaTabAdocao.fxml", event);
+                } else {
+                    // Exibir mensagem de login inválido
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        if (!entrou) {
-            // Caso o login não seja encontrado, exiba uma mensagem de erro ou tome a ação apropriada.
-        }
-    });
-    
-    btnLogarAdm.setOnMouseClicked(event -> {
-        try {
-            mudarTela("../tela/telaAdm.fxml", event);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    });
-     btnCadastro.setOnMouseClicked(event -> {
-        try {
-            mudarTela("../tela/telaCadastro.fxml", event);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    });
-}
+        });
 
-public void setControleUsuario(ControleUsuario controleUsuario) {
-    this.controleUsuario = controleUsuario;
-}
+        btnLogarAdm.setOnMouseClicked(event -> {
+            try {
+                mudarTela("../tela/telaAdm.fxml", event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
-public void getLogin(ControleUsuario s) { 
-    String status = "";
-    try {
-        if (s.loginUsuario(caixaTexto01.getText(), caixaTexto02.getText())) {
-           
-            status = "correto";
-        } else {
-            status = "incorreto";
+        btnCadastro.setOnMouseClicked(event -> {
+            try {
+                mudarTela("../tela/telaCadastro.fxml", event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private boolean loginUsuario(String nome, String senha) throws Exception {
+        for (Usuario usuario : dataUsuario.getListaUsuarios()) {
+            if (usuario.getEmail().equals(nome) && usuario.getSenha().equals(senha)) {
+                return true;
+            }
         }
-        // Faça algo com o status, como exibir uma mensagem ou tomar ação apropriada
-    } catch (FileNotFoundException | ClassNotFoundException e) {
-        e.printStackTrace();
-        // Lidar com a exceção de arquivo não encontrado ou classe não encontrada
-    } catch (IOException e) {
-        e.printStackTrace();
-        // Lidar com a exceção de I/O
+        return false;
     }
 }
-}
-
