@@ -105,7 +105,7 @@ public class ControllerTelaTabAdocao extends Controller {
     @FXML
     private void handleAbrirFormularioCadastrarCachorro(MouseEvent event) throws IOException, Exception {
         // Carrega o arquivo fxml e cria um novo stage para a janela popup.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../tela/TelaCadastraDogAdocao.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../tela/TelaAdm.fxml"));
         AnchorPane page = loader.load();
 
         // Cria o palco dialogStage.
