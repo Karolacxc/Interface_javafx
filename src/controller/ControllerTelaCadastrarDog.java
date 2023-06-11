@@ -73,7 +73,6 @@ public class ControllerTelaCadastrarDog extends Controller  {
             txtCorC.clear();
             txtIdadeC.requestFocus();
             txtRacaC.clear();
-            
         }
 
     @FXML

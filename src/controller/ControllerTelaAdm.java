@@ -33,8 +33,6 @@ public class ControllerTelaAdm extends Controller {
                 }
             });
         }
-
-       
     }
     }
 }

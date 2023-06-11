@@ -9,6 +9,13 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "tela.Main",
+            "projectName": "Interface_javafx-1_9b2da08f"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "tela.Main",
             "projectName": "Interface_javafx_974d0d4d"
         },
         {

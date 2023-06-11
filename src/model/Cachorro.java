@@ -6,24 +6,26 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
 
 public class Cachorro implements Serializable {
     private String nome;
     private String cor;
     private int idade;
     private String raca;
-    private String status;                               
-    private ArrayList<Cachorro> caes;
+    private String status;
+    
 
 
     // Construtores
     public Cachorro(String nome, String cor, int idade2, String raca) {
         this.nome = nome;
         this.cor = cor;
-        this.idade = idade2;                    ////  this.idade = idade2;    2??
+        this.idade = idade2;                   
         this.raca = raca;
     }
+
+    public Cachorro(){}
 
     // Métodos getters and setters
     public String getStatus() {
@@ -89,26 +91,28 @@ public class Cachorro implements Serializable {
                 "\nIdade: " + idade;
     }
 
-    public void cadastro(String nome, String cor, int idade, String raca) {
-        Cachorro cadastroDogs = new Cachorro(nome, cor, idade, raca);
-        caes.add(cadastroDogs);
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        return result;
     }
 
-    public String listaDogs() {
-        String listaNome = "";
-        for (Cachorro c : caes) {
-            listaNome += c.toString() + "\n";
-        }
-        return listaNome;
-    }
-
-
-    public void removerCachorro(String nome) {
-        for (int i = 0; i < caes.size(); i++) {
-            if (nome.equals(caes.get(i).getNome())) {
-                caes.remove(i);
-                break;
-            }
-        }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Cachorro other = (Cachorro) obj;
+        if (nome == null) {
+            if (other.nome != null)
+                return false;
+        } else if (!nome.equals(other.nome))
+            return false;
+        return true;
     }
 }

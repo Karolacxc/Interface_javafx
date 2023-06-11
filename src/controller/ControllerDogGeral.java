@@ -52,7 +52,8 @@ public class ControllerDogGeral extends Controller {
 
 
         public static void configConteudo(String imagemDog, String lableDog, String textDog){
-            Image imageCachorro = new Image(imagemDog);
+           
+           Image imageCachorro = new Image(imagemDog);
 
            ControllerDogGeral.imagemDog.setImage(imageCachorro);
            ControllerDogGeral.lableDog.setText(lableDog);;
