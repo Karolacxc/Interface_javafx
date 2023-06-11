@@ -56,7 +56,7 @@ public class ControllerDogGeral extends Controller {
            Image imageCachorro = new Image(imagemDog);
 
            ControllerDogGeral.imagemDog.setImage(imageCachorro);
-           ControllerDogGeral.lableDog.setText(lableDog);;
+           ControllerDogGeral.lableDog.setText(lableDog);
            ControllerDogGeral.textDog.setText(textDog);
 
         }
