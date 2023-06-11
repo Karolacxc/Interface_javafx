@@ -33,14 +33,14 @@ public class ApiiProjeto {
         ArrayList <Cachorro> cachorrinhos = new ArrayList<>();
 
         // Adicionando as instâncias dos cachorrinhos
-        controleCaes.cadastro("Estudioso", "Amarelo", "4", "Caramelo");
-        controleCaes.cadastro("Feijão", "Marrom Claro", "1", "Caramelo");
-        controleCaes.cadastro("Tocão", "Amarelo", "8", "Caramelo");
-        controleCaes.cadastro("Mel", "Marrom Escuro", "9", "Caramelo");
-        controleCaes.cadastro("Bob", "Amarelo Alaranjado", "6", "Caramelo");
-        controleCaes.cadastro("Romeu", "Amarelo Alaranjado", "8", "Caramelo");
-        controleCaes.cadastro("Bento", "Preto com manchinhas marrom", "4", "Caramelo");
-        controleCaes.cadastro("Bibi", "Preta com manchinhas marrom", "9", "Caramelo");
+        controleCaes.cadastro("Estudioso", "Amarelo", 4, "Caramelo");
+        controleCaes.cadastro("Feijão", "Marrom Claro", 1, "Caramelo");
+        controleCaes.cadastro("Tocão", "Amarelo", 8, "Caramelo");
+        controleCaes.cadastro("Mel", "Marrom Escuro", 9, "Caramelo");
+        controleCaes.cadastro("Bob", "Amarelo Alaranjado", 6, "Caramelo");
+        controleCaes.cadastro("Romeu", "Amarelo Alaranjado", 8, "Caramelo");
+        controleCaes.cadastro("Bento", "Preto com manchinhas marrom", 4, "Caramelo");
+        controleCaes.cadastro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo");
         
         System.out.print(menu());
         int op = input.nextInt();
@@ -98,7 +98,7 @@ public class ApiiProjeto {
                                  
                                  switch (cachorrEscolh){
                                      case (1): {
-                                         Cachorro cachorrinho = new Cachorro("Estudioso", "Amarelo", "4", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Estudioso", "Amarelo", 4, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -114,7 +114,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (2): {
-                                         Cachorro cachorrinho = new Cachorro("Feijão", "Marrom Claro", "1", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                           Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -127,7 +127,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (3): {
-                                         Cachorro cachorrinho = new Cachorro("Tocão", "Amarelo", "8", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Tocão", "Amarelo", 8, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -140,7 +140,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (4): {
-                                         Cachorro cachorrinho = new Cachorro("Mel", "Marrom Escuro", "9", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -153,7 +153,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (5): {
-                                         Cachorro cachorrinho = new Cachorro("Bob", "Amarelo Alaranjado", "6", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -166,7 +166,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (6): {
-                                         Cachorro cachorrinho = new Cachorro("Romeu", "Amarelo Alaranjado", "8", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -179,7 +179,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (7): {
-                                         Cachorro cachorrinho = new Cachorro("Bento", "Preto com manchinhas marrom", "4", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {
@@ -192,7 +192,7 @@ public class ApiiProjeto {
                                      }
                                      
                                      case (8): {
-                                         Cachorro cachorrinho = new Cachorro("Bibi", "Preta com manchinhas marrom", "9", "Caramelo");
+                                         Cachorro cachorrinho = new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo");
                                          Adocao adocao = new Adocao(cachorrinho, user);
                                          Login usuarioExiste = controleUsuario.pesquisarLogin(emailUsuario);
                                          if (usuarioExiste != null) {

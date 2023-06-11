@@ -5,15 +5,17 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTelaTabAdocao" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTelaTabAdocao">
    <children>
-      <Pane prefHeight="70.0" prefWidth="600.0">
+      <Pane layoutX="-1.0" prefHeight="70.0" prefWidth="600.0">
          <children>
             <Label layoutX="207.0" layoutY="11.0" text="Doguinhos">
                <font>
@@ -28,19 +30,34 @@
                <children>
                   <ButtonBar fx:id="bntPesquisar" prefHeight="53.0" prefWidth="564.0">
                     <buttons>
-                        <TextField prefHeight="26.0" prefWidth="520.0" />
+                        <ImageView fx:id="imageInserir" fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@adicionar.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageEdit" fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@botao-de-parada.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageDelete" fitHeight="37.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@botao-fechar.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="418.0" />
                     </buttons>
                   </ButtonBar>
                </children>
             </HBox>
             <AnchorPane prefHeight="306.0" prefWidth="600.0">
                <children>
-                  <TableView prefHeight="284.0" prefWidth="600.0">
+                  <TableView fx:id="TableCachorro" prefHeight="284.0" prefWidth="600.0">
                     <columns>
-                      <TableColumn prefWidth="205.59997862577438" text="Nome" />
-                      <TableColumn prefWidth="99.99998474121094" text="Cor" />
-                        <TableColumn prefWidth="140.800048828125" text="Idade" />
-                        <TableColumn prefWidth="152.79998779296875" text="Raça" />
+                      <TableColumn fx:id="tableColumnCachorroNome" prefWidth="200.79999083280563" text="Nome" />
+                      <TableColumn fx:id="tableColumnCachorroCor" prefWidth="147.19993591308594" text="Cor" />
+                        <TableColumn fx:id="tableColumnCachorroIdade" prefWidth="99.2000732421875" text="Idade" />
+                        <TableColumn fx:id="tableColumnCachorroRaca" prefWidth="152.79998779296875" text="Raça" />
                     </columns>
                   </TableView>
                </children>

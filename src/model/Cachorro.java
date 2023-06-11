@@ -1,5 +1,7 @@
 package model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -9,17 +11,17 @@ import java.util.ArrayList;
 public class Cachorro implements Serializable {
     private String nome;
     private String cor;
-    private String idade;
+    private int idade;
     private String raca;
-    private String status;
+    private String status;                               
     private ArrayList<Cachorro> caes;
 
 
     // Construtores
-    public Cachorro(String nome, String cor, String idade2, String raca) {
+    public Cachorro(String nome, String cor, int idade2, String raca) {
         this.nome = nome;
         this.cor = cor;
-        this.idade = idade2;
+        this.idade = idade2;                    ////  this.idade = idade2;    2??
         this.raca = raca;
     }
 
@@ -44,11 +46,11 @@ public class Cachorro implements Serializable {
         this.cor = cor;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 
@@ -69,8 +71,8 @@ public class Cachorro implements Serializable {
         return new SimpleStringProperty(cor);
     }
 
-    public StringProperty idadeProperty() {
-        return new SimpleStringProperty(idade);
+    public IntegerProperty idadeProperty() {
+        return new SimpleIntegerProperty(idade);
     }
 
     public StringProperty racaProperty() {
@@ -87,7 +89,7 @@ public class Cachorro implements Serializable {
                 "\nIdade: " + idade;
     }
 
-    public void cadastro(String nome, String cor, String idade, String raca) {
+    public void cadastro(String nome, String cor, int idade, String raca) {
         Cachorro cadastroDogs = new Cachorro(nome, cor, idade, raca);
         caes.add(cadastroDogs);
     }
