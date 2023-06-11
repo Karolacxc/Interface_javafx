@@ -60,20 +60,36 @@ public void initialize(URL location, ResourceBundle resources) {
             e.printStackTrace();
         }
     });
-}
-
-    public void setControleUsuario(ControleUsuario controleUsuario) {
-        this.controleUsuario = controleUsuario;
-    }
-
-    public void getLogin(ControleUsuario s) throws FileNotFoundException, ClassNotFoundException, IOException {
-        String status = "";
-        if (s.loginUsuario(caixaTexto01.getText(), caixaTexto02.getText())) {
-            status = "correto";
+     btnCadastro.setOnMouseClicked(event -> {
+        try {
+            mudarTela("../tela/telaCadastro.fxml", event);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        // Retornar status ou fazer algo com ele
-    }
+    });
 }
 
+public void setControleUsuario(ControleUsuario controleUsuario) {
+    this.controleUsuario = controleUsuario;
+}
 
-    
+public void getLogin(ControleUsuario s) { 
+    String status = "";
+    try {
+        if (s.loginUsuario(caixaTexto01.getText(), caixaTexto02.getText())) {
+           
+            status = "correto";
+        } else {
+            status = "incorreto";
+        }
+        // Faça algo com o status, como exibir uma mensagem ou tomar ação apropriada
+    } catch (FileNotFoundException | ClassNotFoundException e) {
+        e.printStackTrace();
+        // Lidar com a exceção de arquivo não encontrado ou classe não encontrada
+    } catch (IOException e) {
+        e.printStackTrace();
+        // Lidar com a exceção de I/O
+    }
+}
+}
+
