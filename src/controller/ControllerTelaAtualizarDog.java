@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import model.Cachorro;
 
 
-public class ControllerTelaAtualizarDog implements Initializable {
+public class ControllerTelaAtualizarDog extends Controller  {
 
     @FXML
     private TextField txtNomeA;

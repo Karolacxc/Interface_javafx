@@ -26,7 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Cachorro;
 
-public class ControllerTelaTabAdocao implements Initializable {
+public class ControllerTelaTabAdocao extends Controller  {
 
     @FXML
     private ImageView imageInserir;
