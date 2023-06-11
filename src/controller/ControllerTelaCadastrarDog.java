@@ -43,7 +43,11 @@ public class ControllerTelaCadastrarDog extends Controller  {
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
+        this.dialogStage.setResizable(false); // Impede o redimensionamento da tela
+
     }
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         limparCampos();
@@ -80,4 +84,10 @@ public class ControllerTelaCadastrarDog extends Controller  {
         this.dialogStage.close();
     }
 
+    private void initialize() {
+        Stage stage = (Stage) btnCancelC.getScene().getWindow();
+        stage.setResizable(false);
+    }
 }
+
+

@@ -75,6 +75,7 @@ public class ControllerTelaTabAdocao extends Controller {
     @FXML
     private TextField searchTextField;
 
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -94,6 +95,7 @@ public class ControllerTelaTabAdocao extends Controller {
         tableColumnCachorroRaca.setCellValueFactory(new PropertyValueFactory<>("raca"));
         
         
+        
         ObservableList<Cachorro> obsListaCachorro = FXCollections.observableArrayList();
 
         obsListaCachorro.addAll(dataCachorro.getListaCachorros());
@@ -105,7 +107,7 @@ public class ControllerTelaTabAdocao extends Controller {
     @FXML
     private void handleAbrirFormularioCadastrarCachorro(MouseEvent event) throws IOException, Exception {
         // Carrega o arquivo fxml e cria um novo stage para a janela popup.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../tela/TelaAdm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../tela/TelaCadastraDogAdocao.fxml"));
         AnchorPane page = loader.load();
 
         // Cria o palco dialogStage.

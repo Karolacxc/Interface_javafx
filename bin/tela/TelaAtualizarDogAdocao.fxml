@@ -58,7 +58,7 @@
       <Label fx:id="labelStatusAtualizaDog" layoutX="-4.0" layoutY="192.0" prefHeight="18.0" prefWidth="400.0" />
       <Group layoutX="308.0" layoutY="369.0" />
       <Group layoutX="307.0" layoutY="356.0" />
-      <Button fx:id="btnAtuA" layoutX="200.0" layoutY="209.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #60A6A6;" text="Atualizar" />
-      <Button fx:id="btnCancelA" layoutX="279.0" layoutY="209.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #60A6A6;" text="Cancelar" />
+      <Button fx:id="btnAtuA" layoutX="200.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleAtualizarCachorro" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #60A6A6;" text="Atualizar" />
+      <Button fx:id="btnCancelA" layoutX="279.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleCancelarAtualizacao" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #60A6A6;" text="Cancelar" />
    </children>
 </AnchorPane>

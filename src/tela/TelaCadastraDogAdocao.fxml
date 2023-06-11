@@ -57,7 +57,7 @@
       </Label>
       <Label fx:id="labelStatusCadastroDog" layoutY="197.0" prefHeight="7.0" prefWidth="400.0" />
       <Group layoutX="307.0" layoutY="356.0" />
-      <Button fx:id="btnAtuC" layoutX="207.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #60A6A6;" text="Cadastrar" />
-      <Button fx:id="btnCancelC" layoutX="293.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #60A6A6;" text="Cancelar" />
+      <Button fx:id="btnAtuC" layoutX="207.0" layoutY="215.0" mnemonicParsing="false" onAction="#cadastrarCachorro" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #60A6A6;" text="Cadastrar" />
+      <Button fx:id="btnCancelC" layoutX="293.0" layoutY="215.0" mnemonicParsing="false" onAction="#handleCancelarCadastro" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #60A6A6;" text="Cancelar" />
    </children>
 </AnchorPane>

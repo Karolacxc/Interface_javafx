@@ -1,16 +1,16 @@
 package controller;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import data.DataUsuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Usuario;
+
+import javafx.event.ActionEvent;
 
 
 public class ControllerTelaLogin extends Controller {
@@ -30,7 +30,7 @@ public class ControllerTelaLogin extends Controller {
 
 @Override
 public void initialize(URL location, ResourceBundle resources) {
-    btnLogar.setOnMouseClicked(event -> {
+    btnLogar.setOnMouseClicked( event -> {
         String nome = caixaTexto01.getText();
         String senha = caixaTexto02.getText();
         

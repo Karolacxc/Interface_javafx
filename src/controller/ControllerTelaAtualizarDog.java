@@ -56,6 +56,8 @@ public class ControllerTelaAtualizarDog extends Controller  {
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
+        this.dialogStage.setResizable(false); // Impede o redimensionamento da tela
+
     }
 
     @FXML
