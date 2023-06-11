@@ -4,6 +4,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 
@@ -14,20 +16,31 @@ public class Cachorro implements Serializable {
     private int idade;
     private String raca;
     private String status;
+    private String descricao;
+    private Image imagem; 
     
 
 
     // Construtores
-    public Cachorro(String nome, String cor, int idade2, String raca) {
+    public Cachorro(String nome, String cor, int idade2, String raca, Image imagem) {
         this.nome = nome;
         this.cor = cor;
         this.idade = idade2;                   
         this.raca = raca;
+        this.imagem = imagem;
     }
 
     public Cachorro(){}
 
     // Métodos getters and setters
+
+    public String getDescricao() {
+        return descricao;
+    }
+    public Image getImagem() {
+        return imagem;
+    }
+    
     public String getStatus() {
         return status;
     }

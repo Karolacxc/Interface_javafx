@@ -37,16 +37,16 @@ public class DataCachorro {
         try {
             fluxo = new FileInputStream(arq);
             lerObj = new ObjectInputStream(fluxo);
+            System.out.println(listaCachorros);
 
             listaCachorros= (ArrayList<Cachorro>)lerObj.readObject();
-            
                         
         } catch (FileNotFoundException ex) {
             System.out.println("Erro ao listar cachorros");
-            throw new Exception("Erro ao listar cachorros");
+          //  throw new Exception("Erro ao listar cachorros");
         } catch (ClassNotFoundException | IOException ex) {
-            System.out.println("Erro ao listar cachorros");
-            throw new Exception("Erro ao listar cachorros");
+            System.out.println("Erro ao listar dogs");
+          //  throw new Exception("Erro ao listar cachorros");
         } finally {
             if (lerObj != null) {
                 lerObj.close();

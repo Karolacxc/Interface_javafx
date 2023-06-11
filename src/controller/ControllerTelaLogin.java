@@ -30,7 +30,7 @@ public class ControllerTelaLogin extends Controller {
 
 @Override
 public void initialize(URL location, ResourceBundle resources) {
-    btnLogar.setOnMouseClicked( event -> {
+    btnLogar.setOnAction( event -> {
         String nome = caixaTexto01.getText();
         String senha = caixaTexto02.getText();
         

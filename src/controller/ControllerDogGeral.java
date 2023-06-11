@@ -18,19 +18,30 @@ public class ControllerDogGeral extends Controller {
         private Button btnVoltar;
       
         @FXML
-        private static ImageView imagemDog;
+        private  ImageView imagemDog;
 
         @FXML
-        private static Label lableDog;
+        private  Label lableDog;
 
         @FXML
-        private static Text textDog;
+        private  Text textDog;
+
+        public static Image imagem;
+        public static String lableCachorro;
+        public static String descricaoCachorro;
+
 
         
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
     
+         imagemDog.setImage(imagem);
+       
+       
+
+        this.lableDog.setText(lableCachorro);
+        this.textDog.setText(descricaoCachorro);
 
             btnAdotar.setOnAction(event -> {
                 try {
@@ -51,14 +62,12 @@ public class ControllerDogGeral extends Controller {
         }
 
 
-        public static void configConteudo(String imagemDog, String lableDog, String textDog){
+        public static void configConteudo(Image imagemDog, String lableDog, String textDog){
            
-           Image imageCachorro = new Image(imagemDog);
-
-           ControllerDogGeral.imagemDog.setImage(imageCachorro);
-           ControllerDogGeral.lableDog.setText(lableDog);
-           ControllerDogGeral.textDog.setText(textDog);
-
+            imagem = imagemDog;
+            descricaoCachorro= textDog;
+            lableCachorro =lableDog;
+          
         }
 
         /*TODO

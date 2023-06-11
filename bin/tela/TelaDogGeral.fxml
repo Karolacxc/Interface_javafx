@@ -4,19 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTelaDogGeral">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerDogGeral">
    <children>
-      <TextFlow layoutX="355.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Text fx:id="textDog" strokeType="OUTSIDE" strokeWidth="0.0" />
-         </children>
-      </TextFlow>
       <Label fx:id="lableDog" layoutX="182.0" layoutY="32.0" prefHeight="35.0" prefWidth="200.0" />
-      <ImageView fx:id="imagemDog" fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="dtnAdotar" layoutX="423.0" layoutY="294.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="ADOTAR" />
-      <Button fx:id="btnVoltar" layoutX="22.0" layoutY="349.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="VOLTAR" />
+      <ImageView fx:id="imagemDog" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnAdotar" layoutX="399.0" layoutY="187.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="ADOTAR" />
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="VOLTAR" />
    </children>
 </AnchorPane>

@@ -20,8 +20,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -41,28 +43,28 @@ public class ControllerTelaTabAdocao extends Controller {
     @FXML
     private TableView<Cachorro> tableCachorro;
     private DataCachorro dataCachorro = new DataCachorro();
-    //  public ControllerTelaTabAdocao(){
-    //      super();
-    //      carregarTableCachorro();
-    //     Cachorro dog1 = new Cachorro("Estudioso", "Amarelo", 4, "Caramelo");
-    //     Cachorro dog2 = new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo");
-    //     Cachorro dog3 = new Cachorro("Tocão", "Amarelo", 8, "Caramelo");
-    //     Cachorro dog4 = new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo");
-    //     Cachorro dog5 = new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo");
-    //     Cachorro dog6 = new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo");
-    //     Cachorro dog7 = new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo");
-    //     Cachorro dog8 = new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo");
 
-    //     dataCachorro.createCachorro(dog1);
-    //     dataCachorro.createCachorro(dog2);
-    //     dataCachorro.createCachorro(dog3);
-    //     dataCachorro.createCachorro(dog4);
-    //     dataCachorro.createCachorro(dog5);
-    //     dataCachorro.createCachorro(dog6);
-    //     dataCachorro.createCachorro(dog7);
-    //     dataCachorro.createCachorro(dog8);
-    // }
-    // private Cachorro dog = new Cachorro();
+    public ControllerTelaTabAdocao(){
+        
+        Cachorro dog1 = new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", null);
+        Cachorro dog2 = new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo", null);
+        Cachorro dog3 = new Cachorro("Tocão", "Amarelo", 8, "Caramelo", null);
+        Cachorro dog4 = new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo", null);
+        Cachorro dog5 = new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo", null);
+        Cachorro dog6 = new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo", null);
+        Cachorro dog7 = new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo", null);
+        Cachorro dog8 = new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo", null);
+
+        dataCachorro.createCachorro(dog1);
+        dataCachorro.createCachorro(dog2);
+        dataCachorro.createCachorro(dog3);
+        dataCachorro.createCachorro(dog4);
+        dataCachorro.createCachorro(dog5);
+        dataCachorro.createCachorro(dog6);
+        dataCachorro.createCachorro(dog7);
+        dataCachorro.createCachorro(dog8);
+    }
+  
 
     @FXML
     private TableColumn<Cachorro, String> tableColumnCachorroNome;
@@ -86,6 +88,24 @@ public class ControllerTelaTabAdocao extends Controller {
         }
         System.out.println("ControllerTelaTabAdocao.initialize()"+ dataCachorro.getListaCachorros());
         carregarTableCachorro();
+
+        tableCachorro.addEventHandler(MouseEvent.MOUSE_CLICKED, event ->{
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
+                    System.out.println(cachorro);
+                    ControllerDogGeral.configConteudo(cachorro.getImagem(), cachorro.getNome(),cachorro.getRaca());
+                    try {
+                        mudarTela("../tela/TelaDogGeral.fxml", event);
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+      
+
+
     }
 
     private void carregarTableCachorro() {
@@ -101,7 +121,11 @@ public class ControllerTelaTabAdocao extends Controller {
         obsListaCachorro.addAll(dataCachorro.getListaCachorros());
 
         tableCachorro.setItems(obsListaCachorro);
+
     }
+
+
+
 
 
     @FXML
@@ -196,4 +220,7 @@ public class ControllerTelaTabAdocao extends Controller {
             alert.showAndWait();
         }
     }
+
+   
+    
 }

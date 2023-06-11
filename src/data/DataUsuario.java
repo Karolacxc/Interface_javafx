@@ -31,10 +31,10 @@ try {
     user = (ArrayList<Usuario>) lerObj.readObject();
 } catch (FileNotFoundException ex) {
     System.out.println("Erro ao listar usuários");
-    throw new Exception("Erro ao listar usuários");
+  ///  throw new Exception("Erro ao listar usuários");
 } catch (ClassNotFoundException | IOException ex) {
     System.out.println("Erro ao listar usuários");
-    throw new Exception("Erro ao listar usuários");
+  ///  throw new Exception("Erro ao listar usuários");
 } finally {
     if (lerObj != null) {
         try {
@@ -122,3 +122,6 @@ return user;
         return listaUsuario;
     }   
 }
+
+
+
