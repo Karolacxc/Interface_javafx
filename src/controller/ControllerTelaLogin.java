@@ -3,11 +3,14 @@ package controller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import data.DataUsuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import model.Usuario;
 
 
 public class ControllerTelaLogin extends Controller {
@@ -26,35 +29,38 @@ public class ControllerTelaLogin extends Controller {
     private ControleUsuario controleUsuario;
 
 @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        String status = ""; // Inicializar a variável status
-        if (status.equals("correto")) {
-            btnLogar.setOnMouseClicked(event -> {
-                try {
-                    mudarTela("../tela/TelaTabAdocao.fxml", event);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
-
-        btnCadastro.setOnMouseClicked(event -> {
-            try {
-                mudarTela("../tela/TelaCadastro.fxml", event);
-            } catch (IOException e) {
-                e.printStackTrace();
+public void initialize(URL location, ResourceBundle resources) {
+    btnLogar.setOnMouseClicked(event -> {
+        String nome = caixaTexto01.getText();
+        String senha = caixaTexto02.getText();
+        
+        boolean entrou = false;
+        DataUsuario dataUsuario = new DataUsuario();
+        Usuario usuario;
+        try {
+            usuario = dataUsuario.readUsuario(nome);
+            
+            if (usuario != null && usuario.getSenha().equals(senha)) {
+                mudarTela("../tela/TelaTabAdocao.fxml", event);
+                entrou = true;
             }
-        });
- 
-        btnLogarAdm.setOnMouseClicked(event -> {
-             try {
-                 mudarTela("../tela/telaAdm.fxml", event);
-             } catch (IOException e) {
-                 e.printStackTrace();
-             }
-         });   
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
+        
+        if (!entrou) {
+            // Caso o login não seja encontrado, exiba uma mensagem de erro ou tome a ação apropriada.
+        }
+    });
+    
+    btnLogarAdm.setOnMouseClicked(event -> {
+        try {
+            mudarTela("../tela/telaAdm.fxml", event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    });
+}
 
     public void setControleUsuario(ControleUsuario controleUsuario) {
         this.controleUsuario = controleUsuario;
