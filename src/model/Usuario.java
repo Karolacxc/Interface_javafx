@@ -1,41 +1,77 @@
 package model;
 
 import java.io.Serializable;
-import data.DataUsuario;
 
 public class Usuario implements Serializable {
-    String nome;
-    String email;
-    String senha;
+    private String nome;
+    private String fone;
+    private String email;
+    private String senha;
+    private String endereco;
+    private int codigo;
+    
 
-    public Usuario(String nome, String senha, String email) {
+    //construtores
+    public Usuario (String nome, String fone, String email, String senha, String endereco, int codigo) {
         this.nome = nome;
+        this.fone = fone;
         this.email = email;
         this.senha = senha;
+        this.endereco = endereco;
+        
     }
 
+    public Usuario(){}
+
+    //metodos getter/setter
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
-    public void setNome (String nome){
-        this.nome = nome;
+    public String getFone() {
+        return fone;
+    }
+
+    public void setFone(String fone) {
+        this.fone = fone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
-        return this.senha;
+        return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
+
+    public int getCodigo(){
+        return codigo;
+    }
+
+    //metodos utilizados.
+    @Override
+    public String toString(){
+        return "nome: "+this.nome+
+               "\nTelefone: "+this.fone+
+               "\nE-mail: "+this.email+
+               "\nEndereço: "+this.endereco;
+    }
+    
 
 }

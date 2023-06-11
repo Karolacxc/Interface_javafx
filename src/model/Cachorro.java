@@ -1,5 +1,7 @@
 package model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -11,7 +13,7 @@ public class Cachorro implements Serializable {
     private String cor;
     private int idade;
     private String raca;
-    private String status;
+    private String status;                               
     private ArrayList<Cachorro> caes;
 
 
@@ -19,7 +21,7 @@ public class Cachorro implements Serializable {
     public Cachorro(String nome, String cor, int idade2, String raca) {
         this.nome = nome;
         this.cor = cor;
-        this.idade = idade2;
+        this.idade = idade2;                    ////  this.idade = idade2;    2??
         this.raca = raca;
     }
 
@@ -69,8 +71,8 @@ public class Cachorro implements Serializable {
         return new SimpleStringProperty(cor);
     }
 
-    public StringProperty idadeProperty() {
-        return new SimpleStringProperty();
+    public IntegerProperty idadeProperty() {
+        return new SimpleIntegerProperty(idade);
     }
 
     public StringProperty racaProperty() {

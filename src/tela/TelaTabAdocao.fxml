@@ -52,7 +52,7 @@
             </HBox>
             <AnchorPane prefHeight="306.0" prefWidth="600.0">
                <children>
-                  <TableView fx:id="TableCachorro" prefHeight="284.0" prefWidth="600.0">
+                  <TableView fx:id="tableCachorro" prefHeight="284.0" prefWidth="600.0">
                     <columns>
                       <TableColumn fx:id="tableColumnCachorroNome" prefWidth="200.79999083280563" text="Nome" />
                       <TableColumn fx:id="tableColumnCachorroCor" prefWidth="147.19993591308594" text="Cor" />

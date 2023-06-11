@@ -12,7 +12,7 @@ import model.Cachorro;
 
 @SuppressWarnings("unchecked")
 public class DataCachorro {
-    private final String nomeArquivo = "cachorro.ser";
+    private final String nomeArquivo = "../cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
      
    public List<Cachorro> getAllCachorros() throws IOException, Exception {
@@ -42,7 +42,6 @@ public class DataCachorro {
     return cao;
 }
 
-    
     public void createCachorro(Cachorro cao) throws Exception {
           ArrayList <Cachorro> caes = (ArrayList<Cachorro>) getAllCachorros();
           caes.add(cao);
@@ -73,7 +72,6 @@ public class DataCachorro {
          return cao;
     }
     
-
     public void updateCachorro(Cachorro cachorro) throws Exception {
         ArrayList <Cachorro> cao = (ArrayList<Cachorro>) getAllCachorros();
         boolean achou=false;

@@ -47,13 +47,14 @@ public class ControllerTelaLogin extends Controller {
         });
  
         btnLogarAdm.setOnMouseClicked(event -> {
-            try {
-                mudarTela("../tela/telaAdm.fxml", event);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });   
-  }
+             try {
+                 mudarTela("../tela/telaAdm.fxml", event);
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+         });   
+        }
+
 
     public void setControleUsuario(ControleUsuario controleUsuario) {
         this.controleUsuario = controleUsuario;
@@ -67,5 +68,6 @@ public class ControllerTelaLogin extends Controller {
         // Retornar status ou fazer algo com ele
     }
 }
+
 
     

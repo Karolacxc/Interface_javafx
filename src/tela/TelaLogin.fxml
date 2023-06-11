@@ -30,5 +30,6 @@
             <Image url="@login.jpeg" />
          </image>
       </ImageView>
+      <Button fx:id="btnLogarAdm" layoutX="526.0" layoutY="361.0" mnemonicParsing="false" text="ADM" />
    </children>
 </AnchorPane>
