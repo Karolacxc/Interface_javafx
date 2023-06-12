@@ -46,7 +46,7 @@ public class ControllerTelaTabAdocao extends Controller {
 
     public ControllerTelaTabAdocao(){
         
-        Cachorro dog1 = new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", null);
+        Cachorro dog1 = new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", "/tela/2.png");
         Cachorro dog2 = new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo", null);
         Cachorro dog3 = new Cachorro("Tocão", "Amarelo", 8, "Caramelo", null);
         Cachorro dog4 = new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo", null);

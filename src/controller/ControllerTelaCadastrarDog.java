@@ -34,16 +34,16 @@ public class ControllerTelaCadastrarDog extends Controller  {
     private Button btnAtuC;
     @FXML
     private Button btnCancelC;
-    
+
     @FXML
     private ImageView imageView;
     @FXML
     private Button btnSelecione;
-    
+
     private Cachorro Cachorro;      ////
 
     private Stage dialogStage;     //// 
-    
+
     public Cachorro getCachorro(){
         return Cachorro;
     }
@@ -66,14 +66,14 @@ public class ControllerTelaCadastrarDog extends Controller  {
                 // Cria o FileChooser
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Selecionar Imagem");
-    
+
                 // Define os filtros para exibir apenas arquivos de imagem
                 FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(
-                        "Arquivos de Imagem", "*.png", "*.jpg", "*.jpeg");
+                        "Arquivos de Imagem", ".png", ".jpg", "*.jpeg");
                 fileChooser.getExtensionFilters().add(imageFilter);
-    
+
                 // Mostra o diálogo de seleção de arquivo
-                
+
                 File file = fileChooser.showOpenDialog(null);
 
                 if (file != null) {
@@ -84,7 +84,7 @@ public class ControllerTelaCadastrarDog extends Controller  {
             });
 
 
-    }    
+    }
 
     @FXML
     private void cadastrarCachorro(ActionEvent event) throws Exception {
@@ -95,8 +95,8 @@ public class ControllerTelaCadastrarDog extends Controller  {
             int idade = Integer.parseInt(txtIdadeC.getText());
             String raca = txtRacaC.getText().toUpperCase();
 
-            this.Cachorro=new Cachorro(nome,  cor,  idade, raca, imageView.getImage());
-           
+            this.Cachorro=new Cachorro(nome,  cor,  idade, raca, imageView.getImage().impl_getUrl());
+
             this.dialogStage.close();
         }
         else{
@@ -104,8 +104,8 @@ public class ControllerTelaCadastrarDog extends Controller  {
             txtNomeC.requestFocus();
         }
     }
-    
-        private void limparCampos(){     
+
+        private void limparCampos(){
             txtNomeC.clear();
             txtCorC.clear();
             txtIdadeC.requestFocus();
@@ -122,7 +122,3 @@ public class ControllerTelaCadastrarDog extends Controller  {
         stage.setResizable(false);
     }
 }
-
-
-
-

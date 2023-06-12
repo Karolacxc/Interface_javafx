@@ -1,127 +1,91 @@
 package data;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
-import login.Login;
 
 @SuppressWarnings("unchecked")
 public class DataUsuario {
-    private final String nomeArquivo = "usuario.ser";
-     
-   public List<Usuario> getAllUsuarios() throws IOException, Exception {
-    ArrayList<Usuario> user = new ArrayList<>();
-    File arq = new File(nomeArquivo);
-    if (!arq.exists()) {
-        arq.createNewFile();
-        return user;
-    }
-    FileInputStream fluxo;
-    ObjectInputStream lerObj = null;
-try {
-    fluxo = new FileInputStream(arq);
-    lerObj = new ObjectInputStream(fluxo);
-    user = (ArrayList<Usuario>) lerObj.readObject();
-} catch (FileNotFoundException ex) {
-    System.out.println("Erro ao listar usuários");
-  ///  throw new Exception("Erro ao listar usuários");
-} catch (ClassNotFoundException | IOException ex) {
-    System.out.println("Erro ao listar usuários");
-  ///  throw new Exception("Erro ao listar usuários");
-} finally {
-    if (lerObj != null) {
-        try {
-            lerObj.close();
-        } catch (IOException ex) {
-            System.out.println("Erro ao fechar o ObjectInputStream");
-            throw new Exception("Erro ao fechar o ObjectInputStream");
-        }
-    }
-}
-return user;
-   }
-    
-    public void createUsuario(Usuario user) throws Exception {
-          ArrayList <Usuario> users = (ArrayList<Usuario>) getAllUsuarios();
-          users.add(user);
-          try{
-             FileOutputStream fluxo = new FileOutputStream(nomeArquivo);
-             ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
-             escreverObj.writeObject(users);
-             escreverObj.close();
-          
-           } catch (FileNotFoundException ex) {
-            System.out.println ("Erro ao cadastrar usuario");
-            throw new Exception ("Erro ao cadastrar usuario");
-           } catch (IOException ex) {
-            System.out.println ("Erro ao cadastrar usuario");
-            throw new Exception ("Erro ao cadastrar usuario");
-        }
-    }
-    
-    public Usuario readUsuario(String nome) throws Exception {
-       ArrayList <Usuario> users = (ArrayList<Usuario>) getAllUsuarios();
-       Usuario user = null;
-         for (int i = 0; i < users.size(); i++){
-             if (nome.equals(users.get(i).getNome())){
-                 user = users.get(i);
-                 break;
-             }
-         }
-         return user;
-    }
-    
+    private final String nomeArquivo = "user.ser";
+    private ArrayList<Usuario> usuarios;
 
-    public void cadastrarLogin(Login Usuario) {
+    public DataUsuario() {
+        usuarios = new ArrayList<>();
+    }
 
-        ArrayList<Login> listaUsuario = new ArrayList<>();
+    public List<Usuario> getListaUsuarios() {
+        return usuarios;
+    }
+
+    public List<Usuario> getAllUsuarios() throws IOException, Exception {
+        File arq = new File(nomeArquivo);
+        if (!arq.exists()) {
+            arq.createNewFile();
+            return usuarios;
+        }
+
+        FileInputStream fluxo;
+        ObjectInputStream lerObj = null;
         try {
-            listaUsuario = listarUsuario();
-        } catch (FileNotFoundException e) {
-            File arquivo = new File("dados/user.ser");
-            try {
-                arquivo.createNewFile();
-            } catch (IOException x) {
+            fluxo = new FileInputStream(arq);
+            lerObj = new ObjectInputStream(fluxo);
+            usuarios = (ArrayList<Usuario>) lerObj.readObject();
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println("Erro ao listar usuários");
+            throw new Exception("Erro ao listar usuários");
+        } finally {
+            if (lerObj != null) {
+                try {
+                    lerObj.close();
+                } catch (IOException ex) {
+                    System.out.println("Erro ao fechar o ObjectInputStream");
+                    throw new Exception("Erro ao fechar o ObjectInputStream");
+                }
             }
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
         }
+        return usuarios;
+    }
+
+    public void createUsuario(Usuario usuario) {
+        if (usuarios.add(usuario)) {
+            
+            try {
+                atualizarArquivo();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+    }
+
+    private void atualizarArquivo() {
         try {
-            listaUsuario.add(Usuario);
-
-            File endereco = new File("dados/user.ser");
-            FileOutputStream fluxo = new FileOutputStream(endereco);
-            ObjectOutputStream oos = new ObjectOutputStream(fluxo);
-            System.out.println("parte 2");
-            oos.writeObject(listaUsuario);
-            oos.flush();
-            fluxo.flush();
-            oos.close();
-            fluxo.close();
-            System.out.println("parte 3");
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            FileOutputStream fluxo = new FileOutputStream(new File(nomeArquivo), false);
+            ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
+            escreverObj.writeObject(usuarios);
+            escreverObj.close();
+        } catch (IOException ex) {
+            System.out.println("Erro ao atualizar o arquivo de usuários");
+            ex.printStackTrace();
         }
     }
 
-    public ArrayList<Login> listarUsuario() throws FileNotFoundException, IOException, ClassNotFoundException {
-        ArrayList<Login> listaUsuario;
-        File endereco = new File("dados/user.ser");
-        FileInputStream fluxo = new FileInputStream(endereco);
-        try (ObjectInputStream lerObj = new ObjectInputStream(fluxo)) {
-            listaUsuario = (ArrayList<Login>) lerObj.readObject();
+    public Usuario readUsuario(String nome) {
+        for (Usuario user : usuarios) {
+            if (user.getNome().equals(nome))
+                return user;
         }
-        return listaUsuario;
-    }   
+        return null;
+    }
+
+    public void adicionarUsuariosPreEstabelecidos() {
+        Usuario usuario1 = new Usuario("João", "123456789", "joao@example.com", "senha123", "Rua A");
+        Usuario usuario2 = new Usuario("Maria", "987654321", "maria@example.com", "senha456", "Rua B");
+
+        createUsuario(usuario1);
+        createUsuario(usuario2);
+
+        atualizarArquivo();
+    }
 }
-
-
-

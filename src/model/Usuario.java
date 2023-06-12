@@ -8,20 +8,15 @@ public class Usuario implements Serializable {
     private String email;
     private String senha;
     private String endereco;
-    private int codigo;
-    
 
     //construtores
-    public Usuario (String nome, String fone, String email, String senha, String endereco, int codigo) {
+    public Usuario(String nome, String fone, String email, String senha, String endereco) {
         this.nome = nome;
         this.fone = fone;
         this.email = email;
         this.senha = senha;
         this.endereco = endereco;
-        
     }
-
-    public Usuario(){}
 
     //metodos getter/setter
     public String getNome() {
@@ -60,18 +55,12 @@ public class Usuario implements Serializable {
         this.endereco = endereco;
     }
 
-    public int getCodigo(){
-        return codigo;
-    }
-
     //metodos utilizados.
     @Override
-    public String toString(){
-        return "nome: "+this.nome+
-               "\nTelefone: "+this.fone+
-               "\nE-mail: "+this.email+
-               "\nEndereço: "+this.endereco;
+    public String toString() {
+        return "Nome: " + this.nome +
+                "\nTelefone: " + this.fone +
+                "\nE-mail: " + this.email +
+                "\nEndereço: " + this.endereco;
     }
-    
-
 }

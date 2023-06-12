@@ -30,8 +30,4 @@ public class Login implements Serializable {
         this.email = email;
     }
 
-    public void cadastrarLogin(Login l) {
-        DataUsuario log = new DataUsuario();
-        log.cadastrarLogin(l);
-    }
 }
