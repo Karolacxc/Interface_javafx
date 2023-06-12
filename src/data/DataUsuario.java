@@ -49,12 +49,14 @@ public class DataUsuario {
 
     public void createUsuario(Usuario usuario) {
         if (usuarios.add(usuario)) {
+            
             try {
                 atualizarArquivo();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        
     }
 
     private void atualizarArquivo() {

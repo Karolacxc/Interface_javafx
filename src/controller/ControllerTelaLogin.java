@@ -56,7 +56,7 @@ public class ControllerTelaLogin extends Controller {
 
         btnCadastro.setOnMouseClicked(event -> {
             try {
-                mudarTela("../tela/telaCadastro.fxml", event);
+                mudarTela("../tela/TelaCadastro.fxml", event);
             } catch (IOException e) {
                 e.printStackTrace();
             }

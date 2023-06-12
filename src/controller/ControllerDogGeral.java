@@ -10,13 +10,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 public class ControllerDogGeral extends Controller {
-    
+
         @FXML
         private Button btnAdotar;
-    
+
         @FXML
         private Button btnVoltar;
-      
+
         @FXML
         private  ImageView imagemDog;
 
@@ -31,14 +31,15 @@ public class ControllerDogGeral extends Controller {
         public static String descricaoCachorro;
 
 
-        
+
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-    
-         imagemDog.setImage(imagem);
-       
-       
+
+
+        imagemDog.setImage(imagem);
+
+
 
         this.lableDog.setText(lableCachorro);
 
@@ -49,7 +50,7 @@ public class ControllerDogGeral extends Controller {
                     e.printStackTrace();
                 }
             });
-    
+
             btnVoltar.setOnAction(event -> {
                 try {
                     mudarTela("../tela/TelaTabAdocao.fxml", event);
@@ -57,30 +58,25 @@ public class ControllerDogGeral extends Controller {
                     e.printStackTrace();
                 }
             });
-    
+
         }
 
 
-        public static void configConteudo(Image imagemDog, String lableDog, String textDog){
-           
-            imagem = imagemDog;
+        public static void configConteudo(String imagemDog, String lableDog, String textDog){
+
+            imagem = new Image(imagemDog );
             descricaoCachorro= textDog;
             lableCachorro =lableDog;
-          
+
         }
 
         /*TODO
-         
+
         na cladde onde define a tabela pra clicar no cachorro, tem q colocar o setAction
         ControllerGeral.confiConteudo (String(caminhopraImagem) String(nomeDoDcachorro) String(descriçãoDele))
-        
+
         enviar as informacoes da tabela
-    
+
         */
 
     }
-
-
-
-
-

@@ -17,15 +17,15 @@ public class Cachorro implements Serializable {
     private String raca;
     private String status;
     private String descricao;
-    private Image imagem; 
-    
+    private String imagem; 
+
 
 
     // Construtores
-    public Cachorro(String nome, String cor, int idade2, String raca, Image imagem) {
+    public Cachorro(String nome, String cor, int idade2, String raca, String imagem) {
         this.nome = nome;
         this.cor = cor;
-        this.idade = idade2;                   
+        this.idade = idade2;
         this.raca = raca;
         this.imagem = imagem;
     }
@@ -37,10 +37,10 @@ public class Cachorro implements Serializable {
     public String getDescricao() {
         return descricao;
     }
-    public Image getImagem() {
+    public String getImagem() {
         return imagem;
     }
-    
+
     public String getStatus() {
         return status;
     }
