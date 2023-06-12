@@ -35,8 +35,10 @@ public class ControllerTelaLogin extends Controller {
             String senha = caixaTexto02.getText();
 
             try {
-                boolean entrou = loginUsuario(nome, senha);
-                if (entrou) {
+                Usuario user = loginUsuario(nome, senha);
+                if (user != null) {
+                    ControllerTelaTabAdocao.user=user;
+                    
                     mudarTela("../tela/TelaTabAdocao.fxml", event);
                 } else {
                     // Exibir mensagem de login inválido
@@ -63,12 +65,12 @@ public class ControllerTelaLogin extends Controller {
         });
     }
 
-    private boolean loginUsuario(String nome, String senha) throws Exception {
+    private Usuario loginUsuario(String nome, String senha) throws Exception {
         for (Usuario usuario : dataUsuario.getListaUsuarios()) {
             if (usuario.getNome().equals(nome) && usuario.getSenha().equals(senha)) {
-                return true;
+                return usuario;
             }
         }
-        return false;
+        return null;
     }
 }

@@ -19,7 +19,6 @@ public abstract class Controller implements Initializable { // Ela não vai ser 
         try {
             
             FXMLLoader principalLoader = new FXMLLoader(getClass().getResource(path));
-            System.out.println(principalLoader);
             Parent root = principalLoader.load();
 
             Controller controller = principalLoader.getController();

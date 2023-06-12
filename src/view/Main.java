@@ -1,7 +1,8 @@
-package tela;
+package view;
 
 import controller.Controller;
 import controller.MapController;
+import data.DataCachorro;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,12 +14,13 @@ public class Main extends Application {
     public MapController mapController = new MapController();
 
     public static void main(String[] args) throws Exception {
+        DataCachorro.inicializarArquivo();
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String path = "TelaLogin.fxml"; // Determina qual é a tela inicial
+        String path = "/tela/TelaLogin.fxml"; // Determina qual é a tela inicial
 
         FXMLLoader principalLoader = new FXMLLoader(getClass().getResource(path));
         Controller controller = MapController.mapController.get(path);
@@ -30,6 +32,7 @@ public class Main extends Application {
         primaryStage.setScene(principalScene);
         primaryStage.show();
     }
+
 
     
 }

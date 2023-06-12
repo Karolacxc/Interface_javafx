@@ -3,6 +3,9 @@ package data;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Adm;
+import model.Cliente;
 import model.Usuario;
 
 @SuppressWarnings("unchecked")
@@ -80,8 +83,8 @@ public class DataUsuario {
     }
 
     public void adicionarUsuariosPreEstabelecidos() {
-        Usuario usuario1 = new Usuario("João", "123456789", "joao@example.com", "senha123", "Rua A");
-        Usuario usuario2 = new Usuario("Maria", "987654321", "maria@example.com", "senha456", "Rua B");
+        Usuario usuario1 = new Cliente("João", "123456789", "joao@example.com", "senha123", "Rua A");
+        Usuario usuario2 = new Adm("Maria", "987654321", "maria@example.com", "senha456", "Rua B");
 
         createUsuario(usuario1);
         createUsuario(usuario2);

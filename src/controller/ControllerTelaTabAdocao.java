@@ -30,8 +30,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Cachorro;
+import model.Cliente;
+import model.Usuario;
 
 public class ControllerTelaTabAdocao extends Controller {
+
+    public static Usuario user;
 
     @FXML
     private ImageView imageInserir;
@@ -61,21 +65,27 @@ public class ControllerTelaTabAdocao extends Controller {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //
+        if (user instanceof Cliente){
+           imageDelete.setVisible(false);
+           imageInserir.setVisible(false);
+           imageEdit.setVisible(false);
+        }
+
+
         try {
             dataCachorro.getAllCachorros();
         } catch (Exception e) {
             
             e.printStackTrace();
         }
-        System.out.println("ControllerTelaTabAdocao.initialize()"+ dataCachorro.getListaCachorros());
         carregarTableCachorro();
 
         tableCachorro.addEventHandler(MouseEvent.MOUSE_CLICKED, event ->{
                 if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
                     Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
-                    System.out.println(cachorro);
                     ControllerDogGeral.cachorro = cachorro;
-                    ControllerDogGeral.configConteudo(cachorro.getImagem(), cachorro.getNome(),cachorro.getRaca());
+                   // ControllerDogGeral.configConteudo(cachorro.getImagem(), cachorro.getNome(),cachorro.getRaca());
                     try {
                         mudarTela("../tela/TelaDogGeral.fxml", event);
                     } catch (IOException e) {

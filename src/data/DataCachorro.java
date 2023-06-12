@@ -17,15 +17,16 @@ import model.Cachorro;
 public class DataCachorro {
     private static final String nomeArquivo = "cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
+
     public static ArrayList<Cachorro> listaCachorros = new  ArrayList<Cachorro> (Arrays.asList(
-        new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", "/tela/2.png"),
-        new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo", "/tela/3.png"),
-        new Cachorro("Tocão", "Amarelo", 8, "Caramelo", null),
-        new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo", null),
-        new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo", null),
-        new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo", null),
-        new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo", null),
-        new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo", null)
+        new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", "/tela/1.png"),
+        new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo", "/tela/2.png"),
+        new Cachorro("Tocão", "Amarelo", 8, "Caramelo", "/tela/3.png"),
+        new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo", "/tela/4.png"),
+        new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo", "/tela/5.png"),
+        new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo", "/tela/6.png"),
+        new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo", "/tela/7.png"),
+        new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo", "/tela/8.png")
         ));
     
     public List<Cachorro> getListaCachorros() {
@@ -47,16 +48,19 @@ public class DataCachorro {
         try {
             fluxo = new FileInputStream(arq);
             lerObj = new ObjectInputStream(fluxo);
-            System.out.println(listaCachorros);
 
             listaCachorros= (ArrayList<Cachorro>)lerObj.readObject();
                         
         } catch (FileNotFoundException ex) {
             System.out.println("Erro ao listar cachorros");
           //  throw new Exception("Erro ao listar cachorros");
-        } catch (ClassNotFoundException | IOException ex) {
+        } catch (ClassNotFoundException  ex) {
             System.out.println("Erro ao listar dogs");
           //  throw new Exception("Erro ao listar cachorros");
+        }catch ( IOException ex){
+            // throw new Exception("Erro ao listar cachorros");
+            ex.printStackTrace();
+        
         } finally {
             if (lerObj != null) {
                 lerObj.close();
@@ -114,11 +118,16 @@ public class DataCachorro {
         }
     }
 
-    private static void atualizarArquivo() {
+    public static void atualizarArquivo() {
         try {
-            FileOutputStream fluxo = new FileOutputStream(new File(nomeArquivo),false);//aqui cria um novo arquivo em cima do que já tem.
+            File file = new File (nomeArquivo);
+
+            FileOutputStream fluxo = new FileOutputStream(file, false);//aqui cria um novo arquivo em cima do que já tem.
             ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
-            escreverObj.writeObject(listaCachorros);
+           
+                escreverObj.writeObject(listaCachorros);
+   
+           
             escreverObj.close();
 
         } catch (FileNotFoundException ex) {
@@ -126,8 +135,29 @@ public class DataCachorro {
             
         } catch (IOException ex) {
             System.out.println("Erro ao cadastrar cachorro");
-            
         }
     }
+    public static void inicializarArquivo() {
+        try {
+            File file = new File (nomeArquivo);
+            if (!file.exists() || file.length()<=0 ) {
+
+            FileOutputStream fluxo = new FileOutputStream(file, false);//aqui cria um novo arquivo em cima do que já tem.
+            ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
+           
+               
+            escreverObj.writeObject(listaCachorros);
+               escreverObj.close();
+
+           }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Erro ao cadastrar cachorro1.");
+            
+        } catch (IOException ex) {
+            System.out.println("Erro ao cadastrar cachorro");
+        }
+    }
+       
 
 }

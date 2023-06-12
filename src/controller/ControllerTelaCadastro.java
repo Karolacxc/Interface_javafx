@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import model.Cliente;
 import model.Usuario;
 import javafx.stage.Stage;
 
@@ -70,7 +71,7 @@ public class ControllerTelaCadastro extends Controller {
                 String email = textEmail.getText().toUpperCase();
                 String endereco = textEnd.getText().toUpperCase();
                 String senha = textSenha.getText().toUpperCase();
-                usuario = new Usuario(nome, fone, email, senha, endereco);
+                usuario = new Cliente(nome, fone, email, senha, endereco);
 
                 dataUsuario.createUsuario(usuario);
                         

@@ -39,11 +39,10 @@ public class ControllerDogGeral extends Controller {
         public void initialize(URL location, ResourceBundle resources) {
 
 
-        imagemDog.setImage(imagem);
+        imagemDog.setImage(new Image(cachorro.getImagem()));
 
 
-
-        this.lableDog.setText(lableCachorro);
+        this.lableDog.setText(cachorro.getNome());
 
             btnAdotar.setOnAction(event -> {
                 try {
@@ -67,8 +66,9 @@ public class ControllerDogGeral extends Controller {
         
 
 
-        public static void configConteudo(String imagemDog, String lableDog, String textDog){
-
+        public  void configConteudo(String imagemDog, String lableDog, String textDog){
+           
+            this.lableDog=new Label();   
             imagem = new Image(imagemDog );
             descricaoCachorro= textDog;
             lableCachorro =lableDog;
