@@ -3,13 +3,16 @@ package data;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.Usuario;
 
 @SuppressWarnings("unchecked")
 public class DataUsuario {
     private final String nomeArquivo = "user.ser";
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private ArrayList<Usuario> usuarios;
+
+    public DataUsuario() {
+        usuarios = new ArrayList<>();
+    }
 
     public List<Usuario> getListaUsuarios() {
         return usuarios;
@@ -74,14 +77,13 @@ public class DataUsuario {
         return null;
     }
 
-   public void adicionarUsuariosPreEstabelecidos() {
-    Usuario usuario1 = new Usuario("João", "123456789", "joao@example.com", "senha123", "Rua A");
-    Usuario usuario2 = new Usuario("Maria", "987654321", "maria@example.com", "senha456", "Rua B");
+    public void adicionarUsuariosPreEstabelecidos() {
+        Usuario usuario1 = new Usuario("João", "123456789", "joao@example.com", "senha123", "Rua A");
+        Usuario usuario2 = new Usuario("Maria", "987654321", "maria@example.com", "senha456", "Rua B");
 
-    createUsuario(usuario1);
-    createUsuario(usuario2);
+        createUsuario(usuario1);
+        createUsuario(usuario2);
 
-    atualizarArquivo();
-}
-
+        atualizarArquivo();
+    }
 }
