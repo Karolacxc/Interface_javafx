@@ -41,7 +41,6 @@ public class ControllerDogGeral extends Controller {
        
 
         this.lableDog.setText(lableCachorro);
-        this.textDog.setText(descricaoCachorro);
 
             btnAdotar.setOnAction(event -> {
                 try {
