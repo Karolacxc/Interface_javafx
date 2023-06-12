@@ -14,9 +14,9 @@ import model.Cachorro;
 
 @SuppressWarnings("unchecked")
 public class DataCachorro {
-    private final String nomeArquivo = "cachorro.ser";
+    private static final String nomeArquivo = "cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
-    ArrayList<Cachorro> listaCachorros = new ArrayList<>();
+    public static ArrayList<Cachorro> listaCachorros = new ArrayList<>();
     
     public List<Cachorro> getListaCachorros() {
         return listaCachorros;
@@ -96,23 +96,14 @@ public class DataCachorro {
         }
     }
 
-    public void deleteCachorro(Cachorro cachorro) {
-        List<Cachorro> cao = getListaCachorros();
-        boolean achou = false;
-
-        for (Cachorro dog : cao) {
-            if(dog.equals(cachorro)){
-                achou = cao.remove(cachorro);
-                break;
-            }
-        }
-
-        if (achou) {
+    public static void deleteCachorro(Cachorro cachorro) {
+        
+        if (listaCachorros.remove(cachorro)) {
             atualizarArquivo();
         }
     }
 
-    private void atualizarArquivo() {
+    private static void atualizarArquivo() {
         try {
             FileOutputStream fluxo = new FileOutputStream(new File(nomeArquivo),false);//aqui cria um novo arquivo em cima do que já tem.
             ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);

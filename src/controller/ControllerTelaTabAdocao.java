@@ -93,6 +93,7 @@ public class ControllerTelaTabAdocao extends Controller {
                 if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
                     Cachorro cachorro = tableCachorro.getSelectionModel().getSelectedItem();
                     System.out.println(cachorro);
+                    ControllerDogGeral.cachorro = cachorro;
                     ControllerDogGeral.configConteudo(cachorro.getImagem(), cachorro.getNome(),cachorro.getRaca());
                     try {
                         mudarTela("../tela/TelaDogGeral.fxml", event);
@@ -102,10 +103,6 @@ public class ControllerTelaTabAdocao extends Controller {
                     }
                 }
             });
-
-      
-
-
     }
 
     private void carregarTableCachorro() {
@@ -114,8 +111,7 @@ public class ControllerTelaTabAdocao extends Controller {
         tableColumnCachorroIdade.setCellValueFactory(new PropertyValueFactory<>("idade"));
         tableColumnCachorroRaca.setCellValueFactory(new PropertyValueFactory<>("raca"));
         
-        
-        
+                
         ObservableList<Cachorro> obsListaCachorro = FXCollections.observableArrayList();
 
         obsListaCachorro.addAll(dataCachorro.getListaCachorros());

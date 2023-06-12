@@ -19,6 +19,8 @@ import javafx.scene.image.ImageView;
 
         btnFinalizar.setOnMouseClicked(event -> {
           try {
+
+            
             mudarTela("../tela/TelaLogin.fxml", event);
           } catch (IOException e) {
             // TODO Auto-generated catch block

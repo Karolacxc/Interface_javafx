@@ -3,8 +3,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import data.DataCachorro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import model.Cachorro;
 
 public class ControllerTelaFormulario extends Controller {
 
@@ -16,12 +18,15 @@ public class ControllerTelaFormulario extends Controller {
     @FXML
     private Button btnCancelForm;
 
+    public static Cachorro cachorro;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
         btnContiForm.setOnAction(event -> {
             try {
+                DataCachorro.deleteCachorro(cachorro);
                 mudarTela("../tela/TelaAdocConcluida.fxml", event);
             } catch (IOException e) {
                 // TODO Auto-generated catch block

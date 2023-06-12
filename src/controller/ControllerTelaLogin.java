@@ -30,7 +30,7 @@ public class ControllerTelaLogin extends Controller {
         dataUsuario = new DataUsuario();
         dataUsuario.adicionarUsuariosPreEstabelecidos();
 
-        btnLogar.setOnMouseClicked(event -> {
+        btnLogar.setOnAction(event -> {
             String nome = caixaTexto01.getText();
             String senha = caixaTexto02.getText();
 
@@ -65,7 +65,7 @@ public class ControllerTelaLogin extends Controller {
 
     private boolean loginUsuario(String nome, String senha) throws Exception {
         for (Usuario usuario : dataUsuario.getListaUsuarios()) {
-            if (usuario.getEmail().equals(nome) && usuario.getSenha().equals(senha)) {
+            if (usuario.getNome().equals(nome) && usuario.getSenha().equals(senha)) {
                 return true;
             }
         }

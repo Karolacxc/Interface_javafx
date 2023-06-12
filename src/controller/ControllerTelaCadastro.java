@@ -63,6 +63,20 @@ public class ControllerTelaCadastro extends Controller {
         alert.showAndWait().ifPresent(buttonType -> {
             if (buttonType == ButtonType.OK) {
                 try {
+                    if (!textNome.getText().isEmpty() && !textFone.getText().isEmpty() && !textEnd.getText().isEmpty()
+                    && !textEmail.getText().isEmpty() && !textSenha.getText().isEmpty()) {
+                String nome = textNome.getText().toUpperCase();
+                String fone = textFone.getText().toUpperCase();
+                String email = textEmail.getText().toUpperCase();
+                String endereco = textEnd.getText().toUpperCase();
+                String senha = textSenha.getText().toUpperCase();
+                usuario = new Usuario(nome, fone, email, senha, endereco);
+
+                dataUsuario.createUsuario(usuario);
+                        
+        } else {
+            textNome.requestFocus();
+        }
                     mudarTela("../tela/TelaTabAdocao.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -73,21 +87,21 @@ public class ControllerTelaCadastro extends Controller {
 
     @FXML
     private void cadastrarUsuario(ActionEvent event) throws Exception {
-        if (!textNome.getText().isEmpty() && !textFone.getText().isEmpty() && !textEnd.getText().isEmpty()
-                && !textEmail.getText().isEmpty() && !textSenha.getText().isEmpty()) {
-            String nome = textNome.getText().toUpperCase();
-            String fone = textFone.getText().toUpperCase();
-            String email = textEmail.getText().toUpperCase();
-            String endereco = textEnd.getText().toUpperCase();
-            String senha = textSenha.getText().toUpperCase();
-            usuario = new Usuario(nome, fone, email, senha, endereco);
+        // if (!textNome.getText().isEmpty() && !textFone.getText().isEmpty() && !textEnd.getText().isEmpty()
+        //         && !textEmail.getText().isEmpty() && !textSenha.getText().isEmpty()) {
+        //     String nome = textNome.getText().toUpperCase();
+        //     String fone = textFone.getText().toUpperCase();
+        //     String email = textEmail.getText().toUpperCase();
+        //     String endereco = textEnd.getText().toUpperCase();
+        //     String senha = textSenha.getText().toUpperCase();
+        //     usuario = new Usuario(nome, fone, email, senha, endereco);
 
-            dataUsuario.createUsuario(usuario);
+        //     dataUsuario.createUsuario(usuario);
 
-            this.dialogStage.close();
-        } else {
-            textNome.requestFocus();
-        }
+        //     this.dialogStage.close();
+        // } else {
+        //     textNome.requestFocus();
+        // }
     }
 
     private void limparCampos() {

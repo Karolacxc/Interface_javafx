@@ -8,10 +8,9 @@ import model.Usuario;
 @SuppressWarnings("unchecked")
 public class DataUsuario {
     private final String nomeArquivo = "user.ser";
-    private ArrayList<Usuario> usuarios;
-
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
+    
     public DataUsuario() {
-        usuarios = new ArrayList<>();
     }
 
     public List<Usuario> getListaUsuarios() {
@@ -61,10 +60,11 @@ public class DataUsuario {
 
     private void atualizarArquivo() {
         try {
-            FileOutputStream fluxo = new FileOutputStream(new File(nomeArquivo), false);
+            FileOutputStream fluxo = new FileOutputStream(new File(nomeArquivo));
             ObjectOutputStream escreverObj = new ObjectOutputStream(fluxo);
             escreverObj.writeObject(usuarios);
             escreverObj.close();
+
         } catch (IOException ex) {
             System.out.println("Erro ao atualizar o arquivo de usuários");
             ex.printStackTrace();

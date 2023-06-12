@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import model.Cachorro;
 
 public class ControllerDogGeral extends Controller {
 
@@ -29,6 +30,7 @@ public class ControllerDogGeral extends Controller {
         public static Image imagem;
         public static String lableCachorro;
         public static String descricaoCachorro;
+        public static Cachorro cachorro;
 
 
 
@@ -45,6 +47,7 @@ public class ControllerDogGeral extends Controller {
 
             btnAdotar.setOnAction(event -> {
                 try {
+                    ControllerTelaFormulario.cachorro = cachorro;
                     mudarTela("../tela/TelaFormulario.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -60,6 +63,8 @@ public class ControllerDogGeral extends Controller {
             });
 
         }
+
+        
 
 
         public static void configConteudo(String imagemDog, String lableDog, String textDog){
@@ -79,4 +84,11 @@ public class ControllerDogGeral extends Controller {
 
         */
 
-    }
+    
+   
+    
+
+    
+    
+
+}
