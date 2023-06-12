@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import model.Cachorro;
@@ -16,7 +17,16 @@ import model.Cachorro;
 public class DataCachorro {
     private static final String nomeArquivo = "cachorro.ser";
     private final String cachorrosAdotados = "adotados.dat";
-    public static ArrayList<Cachorro> listaCachorros = new ArrayList<>();
+    public static ArrayList<Cachorro> listaCachorros = new  ArrayList<Cachorro> (Arrays.asList(
+        new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", "/tela/2.png"),
+        new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo", "/tela/3.png"),
+        new Cachorro("Tocão", "Amarelo", 8, "Caramelo", null),
+        new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo", null),
+        new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo", null),
+        new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo", null),
+        new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo", null),
+        new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo", null)
+        ));
     
     public List<Cachorro> getListaCachorros() {
         return listaCachorros;
@@ -58,6 +68,7 @@ public class DataCachorro {
     }
 
     public void createCachorro(Cachorro cao) {
+        if (!listaCachorros.contains(cao))
         if(listaCachorros.add(cao))
             try {
                 atualizarArquivo();

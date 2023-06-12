@@ -44,26 +44,7 @@ public class ControllerTelaTabAdocao extends Controller {
     private TableView<Cachorro> tableCachorro;
     private DataCachorro dataCachorro = new DataCachorro();
 
-    public ControllerTelaTabAdocao(){
-        
-        Cachorro dog1 = new Cachorro("Estudioso", "Amarelo", 4, "Caramelo", "/tela/2.png");
-        Cachorro dog2 = new Cachorro("Feijão", "Marrom Claro", 1, "Caramelo", null);
-        Cachorro dog3 = new Cachorro("Tocão", "Amarelo", 8, "Caramelo", null);
-        Cachorro dog4 = new Cachorro("Mel", "Marrom Escuro", 9, "Caramelo", null);
-        Cachorro dog5 = new Cachorro("Bob", "Amarelo Alaranjado", 6, "Caramelo", null);
-        Cachorro dog6 = new Cachorro("Romeu", "Amarelo Alaranjado", 8, "Caramelo", null);
-        Cachorro dog7 = new Cachorro("Bento", "Preto com manchinhas marrom", 4, "Caramelo", null);
-        Cachorro dog8 = new Cachorro("Bibi", "Preta com manchinhas marrom", 9, "Caramelo", null);
 
-        dataCachorro.createCachorro(dog1);
-        dataCachorro.createCachorro(dog2);
-        dataCachorro.createCachorro(dog3);
-        dataCachorro.createCachorro(dog4);
-        dataCachorro.createCachorro(dog5);
-        dataCachorro.createCachorro(dog6);
-        dataCachorro.createCachorro(dog7);
-        dataCachorro.createCachorro(dog8);
-    }
   
 
     @FXML

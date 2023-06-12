@@ -95,9 +95,14 @@ public class ControllerTelaCadastrarDog extends Controller  {
             int idade = Integer.parseInt(txtIdadeC.getText());
             String raca = txtRacaC.getText().toUpperCase();
 
-            this.Cachorro=new Cachorro(nome,  cor,  idade, raca, imageView.getImage().impl_getUrl());
+           try {
+             this.Cachorro=new Cachorro(nome,  cor,  idade, raca, imageView.getImage().impl_getUrl());
+                this.dialogStage.close();
+            } catch (Exception e) {
+            // TODO: handle exception
+           }
 
-            this.dialogStage.close();
+            
         }
         else{
             labelStatusCadastroDog.setText ("Dados Inválidos");
