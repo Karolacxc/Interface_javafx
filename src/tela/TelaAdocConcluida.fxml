@@ -14,9 +14,9 @@
             <Image url="@dogGeral.jpeg" />
          </image>
       </ImageView>
-      <Label layoutX="53.0" layoutY="52.0" text="Adoção Concluida com sucesso! " textFill="WHITE">
+      <Label layoutX="24.0" layoutY="34.0" prefHeight="43.0" prefWidth="576.0" text="Adoção Concluida com sucesso! " textFill="WHITE">
          <font>
-            <Font size="36.0" />
+            <Font name="Rockwell Extra Bold" size="29.0" />
          </font>
       </Label>
       <Button fx:id="btnFinalizar" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="Finalizar" textFill="WHITE" />
