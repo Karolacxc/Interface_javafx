@@ -1,11 +1,9 @@
 package controller;
 
-import data.DataCachorro;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -62,10 +60,10 @@ public class ControllerTelaAtualizarDog extends Controller  {
 
     @FXML
     private void handleAtualizarCachorro(ActionEvent event) throws Exception {
-        this.Cachorro.setNome(this.txtNomeA.getText().toUpperCase());
-        this.Cachorro.setCor(this.txtCorA.getText().toUpperCase());
+        this.Cachorro.setNome(this.txtNomeA.getText());
+        this.Cachorro.setCor(this.txtCorA.getText());
         this.Cachorro.setIdade(Integer.parseInt(this.txtIdadeA.getText()));
-        this.Cachorro.setRaca(this.txtRacaA.getText().toUpperCase());
+        this.Cachorro.setRaca(this.txtRacaA.getText());
 
         dialogStage.close();
     }

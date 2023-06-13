@@ -67,7 +67,7 @@ public class ControllerTelaCadastrarDog extends Controller  {
 
                 // Define os filtros para exibir apenas arquivos de imagem
                 FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter(
-                        "Arquivos de Imagem", ".png", ".jpg", "*.jpeg");
+                        "Arquivos de Imagem", "*.png", "*.jpg", "*.jpeg");
                 fileChooser.getExtensionFilters().add(imageFilter);
 
                 // Mostra o diálogo de seleção de arquivo
