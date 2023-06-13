@@ -2,26 +2,25 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTelaFormulario">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E6D6D;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTelaFormulario">
    <children>
-      <Label layoutX="211.0" layoutY="7.0" text="FORMULARIO" textFill="WHITE">
+      <Label layoutX="118.0" layoutY="274.0" />
+      <ImageView fitHeight="361.0" fitWidth="575.0" layoutX="13.0" layoutY="-7.0">
+         <image>
+            <Image url="@audote-me%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="205.0" layoutY="25.0" prefHeight="35.0" prefWidth="307.0" text="IMPORTANTE" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="Rockwell Extra Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnContiForm" layoutX="512.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="FINALIZAR" textFill="WHITE" />
       <Button fx:id="btnCancelForm" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="CANCELAR" textFill="WHITE" />
-      <Label layoutX="118.0" layoutY="274.0" />
-      <TextArea layoutX="34.0" layoutY="42.0" prefHeight="317.0" prefWidth="532.0" style="-fx-background-color: #2E6D6D;" text="Leia e responda as perguntas abaixo antes de finalizar a adoção:&#10;&#10;Você tem disponibilidade de enviar fotos durante o período de adaptação do cachorrinho ? &#10;&#10;Se comprometerá com as vermifugações e vacinas necessárias?&#10;&#10;Outras pessoas moram com você? Todas estão de acordo com um novo integrante na família?&#10;&#10;Você tem condições financeiras de manter um cachorrinho em casa?&#10;&#10; Você está preparado(a) para cuidar desse cachorro por no mínimo 05 anos?&#10;&#10;Você ou alguém da sua família é alérgico a pelo de cachorro?&#10;&#10; Você está ciente do tamanho que o cachorrinho poderá atingir?">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </TextArea>
-      <TextFlow layoutX="74.0" layoutY="286.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="btnContiForm" layoutX="512.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #60A6A6;" text="FINALIZAR" textFill="WHITE" />
    </children>
 </AnchorPane>
