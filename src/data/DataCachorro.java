@@ -44,12 +44,12 @@ public class DataCachorro {
                         
         } catch (FileNotFoundException ex) {
             System.out.println("Erro ao listar cachorros");
-          //  throw new Exception("Erro ao listar cachorros");
+          
         } catch (ClassNotFoundException  ex) {
             System.out.println("Erro ao listar dogs");
-          //  throw new Exception("Erro ao listar cachorros");
+         
         }catch ( IOException ex){
-            // throw new Exception("Erro ao listar cachorros");
+           
             ex.printStackTrace();
         
         } finally {

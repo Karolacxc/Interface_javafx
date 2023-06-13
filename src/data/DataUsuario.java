@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Adm;
-import model.Cliente;
 import model.Usuario;
 
 @SuppressWarnings("unchecked")
