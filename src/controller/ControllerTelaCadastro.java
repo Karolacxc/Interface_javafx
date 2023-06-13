@@ -73,11 +73,12 @@ public class ControllerTelaCadastro extends Controller {
                 String senha = textSenha.getText().toUpperCase();
                 usuario = new Cliente(nome, fone, email, senha, endereco);
 
-                dataUsuario.createUsuario(usuario);
+                dataUsuario.createUsuario((Cliente)usuario);
                         
         } else {
             textNome.requestFocus();
         }
+        ControllerTelaTabAdocao.user = usuario;
                     mudarTela("../tela/TelaTabAdocao.fxml", event);
                 } catch (IOException e) {
                     e.printStackTrace();

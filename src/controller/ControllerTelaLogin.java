@@ -19,8 +19,6 @@ public class ControllerTelaLogin extends Controller {
     @FXML
     private Button btnCadastro;
     @FXML
-    private Button btnLogarAdm;
-    @FXML
     private Button btnLogar;
 
     private DataUsuario dataUsuario;
@@ -29,6 +27,12 @@ public class ControllerTelaLogin extends Controller {
     public void initialize(URL location, ResourceBundle resources) {
         dataUsuario = new DataUsuario();
         dataUsuario.adicionarUsuariosPreEstabelecidos();
+        try {
+            dataUsuario.getAllUsuarios();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         btnLogar.setOnAction(event -> {
             String nome = caixaTexto01.getText();
@@ -48,13 +52,6 @@ public class ControllerTelaLogin extends Controller {
             }
         });
 
-        btnLogarAdm.setOnMouseClicked(event -> {
-            try {
-                mudarTela("../tela/telaAdm.fxml", event);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
 
         btnCadastro.setOnMouseClicked(event -> {
             try {

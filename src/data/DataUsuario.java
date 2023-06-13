@@ -83,12 +83,11 @@ public class DataUsuario {
     }
 
     public void adicionarUsuariosPreEstabelecidos() {
-        Usuario usuario1 = new Cliente("João", "123456789", "joao@example.com", "senha123", "Rua A");
-        Usuario usuario2 = new Adm("Maria", "987654321", "maria@example.com", "senha456", "Rua B");
+    //   Usuario usuario1 = new Cliente("João", "123456789", "joao@example.com", "senha123", "Rua A");
+    //     Usuario usuario2 = new Adm("Maria", "987654321", "maria@example.com", "senha456", "Rua B");       createUsuario(new Adm("Administrador","00","12345","00","vca"));
+    //     createUsuario(usuario1);
+    //    createUsuario(usuario2);
 
-        createUsuario(usuario1);
-        createUsuario(usuario2);
-
-        atualizarArquivo();
-    }
-}
+     
+   }
+ }
